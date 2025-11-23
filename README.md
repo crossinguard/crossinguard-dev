@@ -17,7 +17,7 @@ All commands are run from the root of the project, from a terminal:
 - web framework: [Astro](https://astro.build/)
   - [astro breadcrumbs navigation](https://docs.astro-breadcrumbs.kasimir.dev/)
   - [astro icons](https://www.astroicon.dev/)
-- online repository: [GitHub](https://github.com/)
+- online repository: [Codeberg](https://codeberg.org/)
 - web hosting platform: [Netlify](https://www.netlify.com/)
 - favicon generator: [favicon.io](https://favicon.io/favicon-converter/)
 - CSS reset: [Piccalilli](https://piccalil.li/blog/a-more-modern-css-reset/)
