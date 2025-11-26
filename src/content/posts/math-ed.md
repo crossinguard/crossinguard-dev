@@ -1,6 +1,6 @@
 ---
-title: 'Mathematics Educator'
-description: 'A summary of my professional experiences as a mathematics educator.'
+title: Mathematics Educator
+description: A summary of my professional experiences as a mathematics educator
 pubDate: 2024-09-22
 updatedDate: 2024-11-11
 ---

@@ -1,12 +1,12 @@
 ---
-title: "My year with Scrimba"
-description: "Projects created while bouncing around Scrimba learning paths."
-pubDate: "2025-11-07"
-# updatedDate: "2025-11-07"
+title: My year with Scrimba
+description: Projects created while bouncing around Scrimba learning paths
+pubDate: 2025-11-07
+updatedDate: "2025-11-25"
 tags:
- - "web-dev"
- - "learning"
- - "js"
+ - web-dev
+ - learning
+ - js
 ---
 
 I recently came across [Scrimba](https://scrimba.com/) while looking into Python learning resources for an IT degree program I am working on. It wasn't something I could use at work but it seemed interesting so I made an account and started taking their "Learn JavaScript" course. I have no association or any sort of promo code, I just found this resource and decided to try it out.
@@ -63,8 +63,7 @@ The app displays the current change in people count. Hitting save updates the to
         >) on <a href="https://codepen.io">CodePen</a>.</span
     >
 </p>
-<script async src="https://public.codepenassets.com/embed/index.js"
-></script>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 
 #### Basketball Scoreboard
@@ -89,7 +88,6 @@ This was the "solo project" at the end of a practice section. In a typical learn
         >) on <a href="https://codepen.io">CodePen</a>.</span
     >
 </p>
-<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 #### Blackjack Game
 
@@ -115,4 +113,73 @@ My version goes further into the "push your luck" element, with a running score 
         >) on <a href="https://codepen.io">CodePen</a>.</span
     >
 </p>
-<script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+#### Password Generator
+
+Solo project for the second set of practice problems. The starting point was another Figma file, which I tried to faithfully reproduce without chasing pixel perfection. The "required" functionality was to generate two random 15-character passwords. I set up my JS functions to be flexible for any length of password, but did not work that into the larger logic as I didn't want to get too bogged down here. To help focus on JS's interaction with CSS, I focused on button and cursor states depending on if passwords have been generated. Additionally, I went on a stretch goal journey to make the passwords copy to the user's clipboard upon clicking on either of the passwords. Looking over how my password manager of choice BitWarden handles their generator, I am pretty confident I could fully recreate the same functionality. Good stuff.
+
+<p
+    class="codepen"
+    data-height="450"
+    data-default-tab="js,result"
+    data-slug-hash="vEGKXdL"
+    data-pen-title="Password Generator | Learn JavaScript"
+    data-preview="true"
+    data-user="crossinguard"
+    style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+>
+    <span
+        >See the Pen <a href="https://codepen.io/crossinguard/pen/vEGKXdL">
+            Password Generator | Learn JavaScript</a
+        > by crossinguard (<a href="https://codepen.io/crossinguard"
+            >@crossinguard</a
+        >) on <a href="https://codepen.io">CodePen</a>.</span
+    >
+</p>
+
+#### Chrome Extension
+
+This time the focus was on turning a simple web app into a Chrome extension. I made very little changes to the meaningful parts of this, but made sure to do my standard upgrades for logical CSS properties, variables, and prioritizing `rem` over `px` units. Note, this uses the Google Chrome API and requires a manifest file, so this doesn't really work as a functional Codepen demo.The idea is the extension can store a list of URLs, with the option to either manually enter URLs or to pull automatically from the current active tab. This was my first foray into local storage and I am excited to keep building on these skills.
+
+<p
+    class="codepen"
+    data-height="450"
+    data-default-tab="js,result"
+    data-slug-hash="jEqGrXL"
+    data-pen-title="Chrome Extension | Learn JavaScript"
+    data-preview="true"
+    data-user="crossinguard"
+    style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+>
+    <span
+        >See the Pen <a href="https://codepen.io/crossinguard/pen/jEqGrXL">
+            Chrome Extension | Learn JavaScript</a
+        > by crossinguard (<a href="https://codepen.io/crossinguard"
+            >@crossinguard</a
+        >) on <a href="https://codepen.io">CodePen</a>.</span
+    >
+</p>
+
+
+#### Unit Converter
+
+Solo project for the third set of practice problems. The starter Figma file had a light and dark mode, but I chose to only build the light version. I am feeling pretty confident in my HTML and CSS abilities for these basic layouts so want to keep my focus on the JS. Like with the password app, I tried to be faithful to the design while not counting pixels. There are a ton of upgrades I would love to make to this app, but am hungry for more so am moving on.
+
+<p
+    class="codepen"
+    data-height="450"
+    data-default-tab="js,result"
+    data-slug-hash="OPNxRBz"
+    data-pen-title="Unit Converter | Learn JavaScript"
+    data-preview="true"
+    data-user="crossinguard"
+    style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+>
+    <span
+        >See the Pen <a href="https://codepen.io/crossinguard/pen/OPNxRBz">
+            Unit Converter | Learn JavaScript</a
+        > by crossinguard (<a href="https://codepen.io/crossinguard"
+            >@crossinguard</a
+        >) on <a href="https://codepen.io">CodePen</a>.</span
+    >
+</p>

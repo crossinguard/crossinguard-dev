@@ -1,5 +1,5 @@
 ---
-title: "www.crossinguard.dev"
+title: "crossinguard.dev"
 description: "The personal website for Brett Egbert and his nerdy little projects."
 pubDate: "2025-10-25"
 status: "under development"
@@ -17,8 +17,7 @@ This website is my own personal creation. A more comprehensive writeup is coming
 - web framework: [Astro](https://astro.build/)
   - [astro breadcrumbs navigation](https://docs.astro-breadcrumbs.kasimir.dev/)
   - [astro icons](https://www.astroicon.dev/)
-- online repository: [GitHub](https://github.com/)
-- online repository: [GitHub](https://github.com/)
+- online repository: [Codeberg](https://codeberg.org/)
 - web hosting platform: [Netlify](https://www.netlify.com/)
 - favicon generator: [Favicon.io](https://favicon.io/favicon-converter/)
 - css methodology: [CUBE CSS](https://cube.fyi/)
@@ -30,5 +29,3 @@ This website is my own personal creation. A more comprehensive writeup is coming
   - *Note: I don't actually use Tailwind, but I like this tool for creating more comprehensive color palettes*
 - fluid design: [Utopia](https://utopia.fyi/)
 - code editor: [Zed](https://zed.dev/)
-- ai: [Claude Code](https://claude.com/product/claude-code)
-  - *Note: My preference, whether talking about basic text prediction or full-on generative AI, is for the tool to stay out of the way until it is needed. I don't like others guessing what I am going to say before I say it. I use Claude Code in a side panel with no auto suggestions or inline use. Claude Code does not directly edit my code. All written text, including page content, my articles, project documention, etc. is entirely written by me with no AI input. My approach to this is ever evolving.*

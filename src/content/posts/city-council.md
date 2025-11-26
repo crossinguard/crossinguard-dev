@@ -1,11 +1,10 @@
 ---
-title: "City Council Position 2"
-description: "Throwing my hat in the ring and running for local public office"
-pubDate: "2025-11-08"
-# updatedDate: "2025-11-08"
+title: City Council Position 2
+description: Throwing my hat in the ring and running for local public office
+pubDate: 2025-11-08
 tags:
-  - "vote"
-  - "community"
+  - vote
+  - community
 ---
 
 Earlier this year I decided to run for City Council Position 2. This was my first time running for public office, and I made it up as I went along.

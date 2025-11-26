@@ -1,7 +1,7 @@
 ---
-title: "Blockbuster days driftin' away"
-description: "The end of late fees, marrying my assistant store manager, and BFF-ing my shift lead"
-pubDate: "2024-05-01"
+title: Blockbuster days driftin' away
+description: The end of late fees, marrying my assistant store manager, and BFF-ing my shift lead
+pubDate: 2024-05-01
 ---
 
 ## The Setup
