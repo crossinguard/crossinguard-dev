@@ -83,3 +83,11 @@ blockquote {
     font-style: italic;
     text-align: center;
 }
+
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}

@@ -28,4 +28,4 @@ This one wasn't too tricky. I took my reference photo into Procreate and sketche
 
 My handwritting hasn't changed at all.
 
-![Zombie Prep Day plan](/src/assets/creative-club/zpday.jpg)
+![Zombie Prep Day plan](../../../assets/creative-club/zpday.jpg)
