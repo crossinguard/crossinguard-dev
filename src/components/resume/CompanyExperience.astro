@@ -1,0 +1,103 @@
+---
+interface Role {
+    title: string;
+    department: string;
+    location: string;
+    startDate: string;
+    endDate: string;
+    responsibilities: string[];
+}
+
+interface Props {
+    company: string;
+    roles: Role[];
+}
+
+const { company, roles } = Astro.props;
+---
+
+<article class="company">
+    <div class="company-header">
+        <h3>{company}</h3>
+    </div>
+    {
+        roles.map((role) => (
+            <div class="role">
+                <div class="role-header">
+                    <h4>{role.title}</h4>
+                    <ul class="role-details">
+                        <li class="department">{role.department}</li>
+                        <li class="location">{role.location}</li>
+                        <li class="dates">
+                            {role.startDate} - {role.endDate}
+                        </li>
+                    </ul>
+                </div>
+                <ul class="responsibilities">
+                    {role.responsibilities.map((resp) => (
+                        <li>{resp}</li>
+                    ))}
+                </ul>
+            </div>
+        ))
+    }
+</article>
+
+<style>
+    h3 {
+        padding-block: var(--space-xs);
+    }
+
+    .role {
+        margin-inline-start: var(--space-s);
+        padding-inline-start: var(--space-s);
+        border-inline-start: solid var(--color-secondary);
+    }
+
+    .role-details {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0 var(--space-xs);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-style: italic;
+        font-size: smaller;
+    }
+
+    .responsibilities {
+        padding: var(--space-s);
+        margin-block: 0;
+    }
+
+    @media print {
+        h3 {
+            font-size: 14pt;
+            padding-block: var(--space-3xs);
+        }
+
+        h4 {
+            font-size: 12pt;
+        }
+
+        .company {
+            font-size: 11pt;
+        }
+
+        .company {
+            padding: 0;
+        }
+
+        .role {
+            margin-inline-start: var(--space-3xs);
+            padding-inline-start: var(--space-3xs);
+            border-inline-start: none;
+        }
+
+        .responsibilities {
+            padding-block: 0;
+            line-height: 1;
+        }
+    }
+</style>

@@ -1,0 +1,93 @@
+---
+import Pin from "@assets/icons/map-pin.svg";
+import Globe from "@assets/icons/globe-simple.svg";
+import Envelope from "@assets/icons/envelope.svg";
+
+interface Props {
+    name: string;
+    location: string;
+    email: string;
+    website: string;
+    description: string;
+}
+
+const { name, location, email, website, description } = Astro.props;
+---
+
+<div class="header">
+    <h1>{name}</h1>
+    <ul>
+        <li>
+            <Pin class="icon" />
+            <p class="location">{location}</p>
+        </li>
+        <li>
+            <Envelope class="icon" />
+            <a href=`mailto:${email}`>
+                {email}
+            </a>
+        </li>
+        <li>
+            <Globe class="icon" />
+            <a href=`https://${website}`>
+                {website}
+            </a>
+        </li>
+    </ul>
+    <p class="description">{description}</p>
+</div>
+
+<style>
+    .header {
+        display: grid;
+        gap: var(--space-3xs);
+        border-block-end: solid 2px var(--color-dark);
+        padding-block-end: var(--space-2xs);
+        margin-block-end: var(--space-2xs);
+        line-height: 1;
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0 var(--space-xs);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .icon {
+        display: inline-block;
+        vertical-align: -0.3em;
+        height: 1.5rem;
+        width: auto;
+    }
+
+    .location {
+        display: inline-block;
+    }
+
+    .description {
+        font-style: italic;
+        text-align: center;
+    }
+
+    @media print {
+        h1 {
+            font-size: 18pt;
+        }
+
+        .header {
+            font-size: 11pt;
+        }
+
+        .icon {
+            height: 11pt;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+</style>

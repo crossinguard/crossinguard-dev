@@ -1,0 +1,10 @@
+@media print {
+    body > *:not(main) {
+        display: none;
+    }
+}
+
+@page {
+    size: letter portrait;
+    margin: 0;
+}

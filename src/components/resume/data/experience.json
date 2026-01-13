@@ -1,0 +1,77 @@
+[
+  {
+    "company": "Western Governors University via LearningMate",
+    "roles": [
+      {
+        "title": "Assessment Developer (Full-Time Contractor)",
+        "department": "Program Development",
+        "location": "remote",
+        "startDate": "Aug 2024",
+        "endDate": "current",
+        "responsibilities": [
+          "Designed and developed technical formative and summative assessments for IT, cybersecurity, data, and software engineering programs at both the bachelor's and master's level",
+          "Built multiple-choice exams, interactive coding activities, and VM-based tasks simulating real-world software development workflows",
+          "Directed blueprinting, item banking, QA, beta testing, and vendor acceptance to ensure assessment quality",
+          "Managed synchronous and asynchronous workshops with instructional designers, faculty, and industry experts to align assessments with technical content outcomes"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Western Governors University",
+    "roles": [
+      {
+        "title": "Business Data Analyst",
+        "department": "Service Design and Innovation",
+        "location": "remote",
+        "startDate": "Jan 2023",
+        "endDate": "Jul 2023",
+        "responsibilities": [
+          "Increased reporting accuracy and efficiency by developing Power Automate and SharePoint workflows to automatically ingest and assign data request tickets, provide status updates, and manage digital files",
+          "Removed reporting pain points by pulling and preparing data from data silos, utilizing R & Python scripts to automate data cleaning and BI report generation",
+          "Developed custom business intelligence dashboards (Tableau, ThoughtSpot) using Databricks SQL queries against millions of student records to reevaluate essential metrics for initiatives and partnerships breaking traditional data pathways"
+        ]
+      },
+      {
+        "title": "Assessment Developer",
+        "department": "Program Development - College of IT",
+        "location": "remote",
+        "startDate": "Aug 2021",
+        "endDate": "Jan 2023",
+        "responsibilities": [
+          "Designed and developed interactive coding assessments covering SQL, Python, and Java, ensuring surgical precision in measurement of student competency in key foundational coding skills",
+          "Facilitated weekly development workshops of internal stakeholders and external industry subject matter experts to design assessment-driven curriculum in alignment to high level content specifications and style guidelines",
+          "Collaborated with psychometrician to analyze assessment results, including fairness metrics for data-driven adjustments for assessment early care"
+        ]
+      },
+      {
+        "title": "Mathematics Education Capstone Evaluator",
+        "department": "Evaluation - Teacher's College",
+        "location": "remote",
+        "startDate": "Aug 2020",
+        "endDate": "Aug 2021",
+        "responsibilities": [
+          "Measured learner competency in capstone projects for middle and high school mathematics teacher candidates, ensuring evidence of conceptual understanding, procedural fluency, and mathematical reasoning was present in lesson plans and recorded artifacts from the classroom",
+          "Increased reporting accuracy and decreased turnaround with customization of existing Excel analysis process, employing custom formulas to automate data ingestion and analysis of student performance"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Alpine School District",
+    "roles": [
+      {
+        "title": "Mathematics Instructor & Department Chair",
+        "department": "Lehi High School, Skyridge High School",
+        "location": "Lehi, UT",
+        "startDate": "Aug 2012",
+        "endDate": "May 2020",
+        "responsibilities": [
+          "Managed math department of 16 educators, including hiring, scheduling, peer evaluations, training, and mentoring of new instructors",
+          "Provided direct instruction in an adaptive learning environment to thousands of students in both in-person and remote classrooms, specializing in building relationships with students that have historically struggled in mathematics",
+          "Designed courses in alignment with the Utah Common Core, including course scope & sequence, original lesson plans & presentations, instructional video recordings, custom assessments, and application-based projects"
+        ]
+      }
+    ]
+  }
+]

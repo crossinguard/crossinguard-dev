@@ -11,8 +11,8 @@
     "deploy": "netlify deploy --prod"
   },
   "dependencies": {
-    "@astrojs/mdx": "4.3.9",
-    "astro": "5.15.2",
+    "@astrojs/mdx": "4.3.13",
+    "astro": "5.16.8",
     "astro-breadcrumbs": "^3.3.1",
     "astro-icon": "^1.1.5"
   },

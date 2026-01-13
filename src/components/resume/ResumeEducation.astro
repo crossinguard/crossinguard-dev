@@ -1,0 +1,57 @@
+---
+import educationData from "./data/education.json";
+
+interface Education {
+    degree: string;
+    field: string;
+    institution: string;
+    graduationYear: number;
+}
+
+const { degree, field, institution, graduationYear } = Astro.props;
+---
+
+<section class="education">
+    <h2>II. Education</h2>
+    <ul class="education-list">
+        {
+            educationData.map((edu) => (
+                <li>
+                    <span class="degree">
+                        {edu.degree}, {edu.field}
+                    </span>
+                    <span class="institution">
+                        {edu.institution} {edu.graduationYear}
+                    </span>
+                </li>
+            ))
+        }
+    </ul>
+</section>
+
+<style>
+    h2 {
+        text-transform: uppercase;
+        padding-block: var(--space-3xs);
+    }
+
+    .institution {
+        font-style: italic;
+        font-size: smaller;
+        white-space: nowrap;
+    }
+
+    @media print {
+        h2 {
+            font-size: 16pt;
+        }
+
+        .education-list {
+            /*margin-inline-start: var(--space-3xs);*/
+            padding-inline-start: var(--space-xs);
+            font-size: 11pt;
+            margin: 0;
+            line-height: 1;
+        }
+    }
+</style>
