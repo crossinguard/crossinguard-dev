@@ -12,11 +12,11 @@ const { degree, field, institution, graduationYear } = Astro.props;
 ---
 
 <section class="education">
-    <h2>II. Education</h2>
-    <ul class="education-list">
+    <h2 class="education__title">II. Education</h2>
+    <ul class="education__list">
         {
             educationData.map((edu) => (
-                <li>
+                <li class="education__list-item">
                     <span class="degree">
                         {edu.degree}, {edu.field}
                     </span>
@@ -30,7 +30,7 @@ const { degree, field, institution, graduationYear } = Astro.props;
 </section>
 
 <style>
-    h2 {
+    .education__title {
         text-transform: uppercase;
         padding-block: var(--space-3xs);
     }
@@ -42,16 +42,20 @@ const { degree, field, institution, graduationYear } = Astro.props;
     }
 
     @media print {
-        h2 {
-            font-size: 16pt;
+        .education__title {
+            font-size: var(--font-size-h2);
         }
 
-        .education-list {
-            /*margin-inline-start: var(--space-3xs);*/
+        .education__list {
             padding-inline-start: var(--space-xs);
-            font-size: 11pt;
+            font-size: var(--font-size-body);
             margin: 0;
-            line-height: 1;
+            line-height: var(--line-height);
+        }
+
+        .education__list-item {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 </style>

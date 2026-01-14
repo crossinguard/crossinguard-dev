@@ -17,23 +17,23 @@ const { company, roles } = Astro.props;
 ---
 
 <article class="company">
-    <div class="company-header">
-        <h3>{company}</h3>
-    </div>
+    <h3 class="company__title">{company}</h3>
     {
         roles.map((role) => (
             <div class="role">
-                <div class="role-header">
-                    <h4>{role.title}</h4>
-                    <ul class="role-details">
-                        <li class="department">{role.department}</li>
-                        <li class="location">{role.location}</li>
-                        <li class="dates">
+                <div class="role__header">
+                    <h4 class="role__header-title">{role.title}</h4>
+                    <ul class="role__details">
+                        <li class="role__details-department">
+                            {role.department}
+                        </li>
+                        <li class="role__details-location">{role.location}</li>
+                        <li class="role__details-dates">
                             {role.startDate} - {role.endDate}
                         </li>
                     </ul>
                 </div>
-                <ul class="responsibilities">
+                <ul class="role__responsibilities">
                     {role.responsibilities.map((resp) => (
                         <li>{resp}</li>
                     ))}
@@ -44,7 +44,7 @@ const { company, roles } = Astro.props;
 </article>
 
 <style>
-    h3 {
+    .company__title {
         padding-block: var(--space-xs);
     }
 
@@ -54,7 +54,7 @@ const { company, roles } = Astro.props;
         border-inline-start: solid var(--color-secondary);
     }
 
-    .role-details {
+    .role__details {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -66,27 +66,23 @@ const { company, roles } = Astro.props;
         font-size: smaller;
     }
 
-    .responsibilities {
+    .role__responsibilities {
         padding: var(--space-s);
         margin-block: 0;
     }
 
     @media print {
-        h3 {
-            font-size: 14pt;
+        .company__title {
+            font-size: var(--font-size-h3);
             padding-block: var(--space-3xs);
         }
 
-        h4 {
-            font-size: 12pt;
+        .role__header-title {
+            font-size: var(--font-size-h4);
         }
 
         .company {
-            font-size: 11pt;
-        }
-
-        .company {
-            padding: 0;
+            font-size: var(--font-size-body);
         }
 
         .role {
@@ -95,31 +91,22 @@ const { company, roles } = Astro.props;
             border-inline-start: none;
         }
 
-        .role-details {
-            --min: 15ch;
-            --gap: 1rem;
-
+        .role__details {
             display: grid;
-            grid-gap: var(--gap);
-            /* min() with 100% prevents overflow
-            in extra narrow spaces */
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(min(100%, var(--min)), 1fr)
-            );
-
-            .location {
-                text-align: center;
-            }
-
-            .dates {
-                text-align: end;
-            }
+            grid-template-columns: repeat(3, 1fr);
         }
 
-        .responsibilities {
+        .role__details-location {
+            text-align: center;
+        }
+
+        .role__details-dates {
+            text-align: end;
+        }
+
+        .role__responsibilities {
             padding-block: 0;
-            line-height: 1;
+            line-height: var(--line-height);
         }
     }
 </style>

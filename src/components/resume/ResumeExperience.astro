@@ -5,18 +5,18 @@ import CompanyExperience from "./CompanyExperience.astro";
 ---
 
 <section class="experience">
-    <h2>I. Professional Experience</h2>
+    <h2 class="experience__title">I. Professional Experience</h2>
     {experienceData.map((company) => <CompanyExperience {...company} />)}
 </section>
 
 <style>
-    h2 {
+    .experience__title {
         text-transform: uppercase;
     }
 
     @media print {
-        h2 {
-            font-size: 16pt;
+        .experience__title {
+            font-size: var(--font-size-h2);
         }
     }
 </style>

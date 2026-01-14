@@ -14,40 +14,41 @@ interface Props {
 const { name, location, email, website, description } = Astro.props;
 ---
 
-<div class="header">
-    <h1>{name}</h1>
-    <ul>
+<header class="header">
+    <h1 class="header__title">{name}</h1>
+    <ul class="header__details">
         <li>
-            <Pin class="icon" />
-            <p class="location">{location}</p>
+            <Pin class="header__details-icon" />
+            <p class="header__details-location">{location}</p>
         </li>
         <li>
-            <Envelope class="icon" />
-            <a href=`mailto:${email}`>
+            <Envelope class="header__details-icon" />
+            <a class="email" href=`mailto:${email}`>
                 {email}
             </a>
         </li>
         <li>
-            <Globe class="icon" />
-            <a href=`https://${website}`>
+            <Globe class="header__details-icon" />
+            <a class="header__details-website" href=`https://${website}`>
                 {website}
             </a>
         </li>
     </ul>
-    <p class="description">{description}</p>
-</div>
+    <p class="header__description">{description}</p>
+</header>
 
 <style>
     .header {
+        --gap: var(--space-xs);
         display: grid;
-        gap: var(--space-3xs);
+        gap: var(--gap);
         border-block-end: solid 2px var(--color-dark);
         padding-block-end: var(--space-2xs);
         margin-block-end: var(--space-2xs);
-        line-height: 1;
+        line-height: var(--line-height);
     }
 
-    ul {
+    .header__details {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -57,40 +58,37 @@ const { name, location, email, website, description } = Astro.props;
         margin: 0;
     }
 
-    .icon {
+    .header__details-icon {
         display: inline-block;
-        vertical-align: -0.3em;
+        vertical-align: -0.2em;
         height: 1.5rem;
         width: auto;
     }
 
-    .location {
+    .header__details-location {
         display: inline-block;
     }
 
-    .description {
+    .header__description {
         font-style: italic;
         text-align: center;
     }
 
     @media print {
-        h1 {
-            font-size: 18pt;
-        }
-
         .header {
-            font-size: 11pt;
+            --gap: var(--space-3xs);
+            font-size: var(--font-size-body);
         }
 
-        .icon {
-            height: 11pt;
+        .header__title {
+            font-size: var(--font-size-h1);
         }
 
-        a {
-            text-decoration: none;
+        .header__details-icon {
+            height: var(--font-size-body);
         }
 
-        .description {
+        .header__description {
             max-width: 75ch;
             margin-inline: auto;
         }
