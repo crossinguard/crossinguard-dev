@@ -7,15 +7,13 @@ interface Education {
     institution: string;
     graduationYear: number;
 }
-
-const { degree, field, institution, graduationYear } = Astro.props;
 ---
 
 <section class="education">
     <h2 class="education__title">II. Education</h2>
     <ul class="education__list">
         {
-            educationData.map((edu) => (
+            educationData.map((edu: Education) => (
                 <li class="education__list-item">
                     <span class="degree">
                         {edu.degree}, {edu.field}
