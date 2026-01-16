@@ -34,7 +34,7 @@ I am an "assessment specialist", meaning I create opportunities for students to 
 
 Back in high school during the early 2000s, I took an "Intro to Web Design" course. I later joined the student-run school website team, specializing in the totally-still-relevant field of [Flash](https://en.wikipedia.org/wiki/Adobe_Flash) (Macromedia Flash at the time).
 
-In college I bounced back and forth between majoring in math education or computer science. The mah ed path won, but now as a bona fide adult I am diving head-first into modern web design.
+In college I bounced back and forth between majoring in math education or computer science. The math ed path won, but now as a bona fide adult I am diving head-first into modern web design.
 
 <style>
     main img {
