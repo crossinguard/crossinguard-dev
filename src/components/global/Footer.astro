@@ -1,29 +1,34 @@
 ---
-import { Icon } from "astro-icon/components";
-import site from "../../data/site.json";
+import Icon from "@components/global/Icon.astro";
+import envelope from "@icons/envelope.svg";
+import codeberg from "@icons/codeberg.svg";
 
 const today = new Date();
 ---
 
 <footer>
-    <p>{site.author.name} &copy; {today.getFullYear()}</p>
-    <ul class="social cluster">
-        {
-            site.author.social.map((social) => (
-                <li>
-                    <a
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Icon name=`ph:${social.icon}` />
-                        <span class="label">{social.name}</span>
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+    <p>W. Brett Egbert &copy; {today.getFullYear()}</p>
     <p><em>stay curious</em></p>
+    <ul class="social cluster">
+        <li>
+            <a
+                href="mailto:brett@crossinguard.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Icon icon={envelope} text="Email" variant="stacked" />
+            </a>
+        </li>
+        <li>
+            <a
+                href="https://codeberg.org/crossinguard"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Icon icon={codeberg} text="Codeberg" variant="stacked" />
+            </a>
+        </li>
+    </ul>
 </footer>
 
 <style>
@@ -33,16 +38,12 @@ const today = new Date();
         color: var(--color-light);
         font-family: monospace;
         font-size: var(--step--1);
+        font-weight: 400;
         box-shadow:
             0 -0.25rem var(--color-primary),
             0 -0.5rem var(--color-secondary),
             0 -0.75rem var(--color-tertiary);
         text-align: center;
-        /*margin-block-start: var(--space-xl);*/
-    }
-
-    p {
-        margin-inline: auto;
     }
 
     .social {
@@ -56,23 +57,13 @@ const today = new Date();
 
     .social a {
         text-decoration: none;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
     }
 
     .social a:hover {
-        .label {
-            color: var(--color-tertiary);
-            text-decoration: underline;
-            text-decoration-color: var(--color-primary);
-            text-decoration-thickness: 0.25rem;
-            text-underline-offset: 0.25rem;
-        }
-
-        [data-icon] {
-            color: var(--color-secondary);
-            margin-inline: auto;
-        }
+        text-decoration: underline;
+        text-decoration-color: var(--color-secondary);
+        text-decoration-thickness: 3px;
+        text-underline-offset: 3px;
+        font-weight: 700;
     }
 </style>

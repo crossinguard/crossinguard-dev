@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
 const allPages = await getCollection("pages");
@@ -19,7 +18,6 @@ const navPages = allPages
         navPages.map((page) => (
             <div class="box flow">
                 <h3>
-                    {page.data.icon && <Icon name={page.data.icon} />}
                     <a href={`/${page.id}`}>{page.data.title}</a>
                 </h3>
                 <p>{page.data.description}</p>
@@ -36,7 +34,6 @@ const navPages = allPages
         border: 2px solid var(--color-dark);
     }
 
-    [data-icon],
     h3 {
         display: flex;
         gap: var(--space-3xs);

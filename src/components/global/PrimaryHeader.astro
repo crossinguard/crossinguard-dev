@@ -1,8 +1,8 @@
 ---
-import { Icon } from "astro-icon/components";
+import Icon from "@components/global/Icon.astro";
+import crystal from "@icons/crystal.svg";
 import SkipLink from "./SkipLink.astro";
 import { getCollection } from "astro:content";
-import site from "../../data/site.json";
 
 const { pathname } = Astro.url;
 const allPages = await getCollection("pages");
@@ -16,11 +16,10 @@ const navPages = allPages
     <div class="site-head wrapper repel">
         <a
             href="/"
-            aria-label=`${site.website.title} home`
+            aria-label="crossinguard.dev home"
             class="site-head__brand cluster"
         >
-            <Icon name="crystal" />
-            <p>{site.website.title}</p>
+            <Icon icon={crystal} text="crossinguard.dev" />
         </a>
         <nav aria-label="primary">
             <ul role="list" class="cluster">

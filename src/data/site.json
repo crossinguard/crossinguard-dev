@@ -14,14 +14,9 @@
         "icon": "at"
       },
       {
-        "name": "GitHub",
-        "url": "https://github.com/crossinguard",
-        "icon": "github-logo"
-      },
-      {
-        "name": "LinkedIn",
-        "url": "https://www.linkedin.com/in/w-brett-egbert/",
-        "icon": "linkedin-logo"
+        "name": "Codeberg",
+        "url": "https://codeberg.org/crossinguard",
+        "icon": "codeberg"
       }
     ]
   }

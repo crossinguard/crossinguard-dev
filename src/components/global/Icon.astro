@@ -1,0 +1,36 @@
+---
+import type { SvgComponent } from "astro/types";
+
+interface Props {
+    icon: SvgComponent;
+    text?: string;
+    variant?: "inline" | "stacked";
+}
+
+const { icon: IconSvg, text, variant = "inline" } = Astro.props;
+---
+
+<span class="icon" data-variant={variant}>
+    <IconSvg data-icon />
+    {text && <span class="label">{text}</span>}
+</span>
+
+<style>
+    .icon {
+        display: flex;
+        gap: var(--space-3xs);
+        width: fit-content;
+        height: auto;
+        align-items: center;
+    }
+
+    .icon[data-variant="stacked"] {
+        flex-direction: column;
+    }
+
+    [data-icon] {
+        fill: currentColor;
+        height: 1em;
+        width: auto;
+    }
+</style>

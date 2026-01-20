@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 interface Props {
     title: string;
     description: string;
@@ -27,9 +26,7 @@ const { title, description, pubDate, status, id, basePath, tags } = Astro.props;
         <p class="status">{status}</p>
     </div>
     <h2 class="title">
-        <a href={`/projects/${basePath}/${id}`} class="link"
-            >{title} <Icon name="ph:arrow-right" /></a
-        >
+        <a href={`/projects/${basePath}/${id}`} class="link">{title}</a>
     </h2>
     <p class="description">
         {description}

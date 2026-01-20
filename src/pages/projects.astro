@@ -15,16 +15,15 @@ import {
                 <section class="section flow">
                     <h2>{config.name}</h2>
                     <p>{config.description}</p>
-                    <p>
-                        <a href={`/projects/${config.path}`}>
-                            View all {config.name.toLowerCase()} projects
-                        </a>
-                        <GridProjects
-                            collection={key}
-                            limit={limit}
-                            layout="stack"
-                        />
-                    </p>
+
+                    <GridProjects
+                        collection={key}
+                        limit={limit}
+                        layout="stack"
+                    />
+                    <a href={`/projects/${config.path}`}>
+                        View all {config.name.toLowerCase()} projects
+                    </a>
                 </section>
             );
         })
@@ -34,5 +33,10 @@ import {
 <style>
     h2 {
         padding-block-start: var(--space-l);
+    }
+
+    a {
+        display: block;
+        padding-block: var(--space-2xs);
     }
 </style>

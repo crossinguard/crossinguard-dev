@@ -1,31 +1,13 @@
 ---
-import { Breadcrumbs } from "astro-breadcrumbs";
-import { Icon } from "astro-icon/components";
-import "astro-breadcrumbs/breadcrumbs.css";
-
-interface Props {
-    textFormat?: "lower" | "capitalized" | "sentence";
-}
-
-const { textFormat = "capitalized" } = Astro.props;
+const today = Date();
 ---
 
-<Breadcrumbs linkTextFormat={textFormat}>
-    <span class="breadcrumb-icon" slot="separator">
-        <Icon name="ph:caret-right" />
-    </span>
-</Breadcrumbs>
+<div class="breadcrumbs">
+    <p>this is a breadcrumb!</p>
+</div>
 
-<style is:global>
-    .c-breadcrumbs__link {
-        color: var(--color-primary-shade);
-    }
-
-    .c-breadcrumbs__link:hover {
-        text-decoration: underline;
-    }
-
-    .breadcrumb-icon [data-icon="ph:caret-right"] {
-        vertical-align: -0.1em;
+<style>
+    .breadcrumbs {
+        display: none;
     }
 </style>
