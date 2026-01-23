@@ -1,0 +1,67 @@
+[
+  {
+    "company": "Blockbuster Video",
+    "roles": [
+      {
+        "title": "Store Manager",
+        "department": "Store Operations",
+        "location": "Portland, OR",
+        "startDate": "Jun 2002",
+        "endDate": "current",
+        "responsibilities": [
+          "Managed daily operations of high-volume store with 15,000+ active members",
+          "Supervised team of 12 employees across multiple shifts",
+          "Increased Game Pass subscriptions by 35% through targeted promotions",
+          "Reduced late fee disputes by implementing customer education program",
+          "Maintained inventory of 8,000+ VHS and DVD titles"
+        ]
+      },
+      {
+        "title": "Assistant Manager",
+        "department": "Store Operations",
+        "location": "Portland, OR",
+        "startDate": "Mar 2001",
+        "endDate": "May 2002",
+        "responsibilities": [
+          "Coordinated new release wall organization every Tuesday",
+          "Trained staff on upselling techniques for candy and popcorn",
+          "Managed cash drawer reconciliation and nightly deposits",
+          "Handled customer account issues and waived late fees when appropriate"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Hollywood Video",
+    "roles": [
+      {
+        "title": "Senior Customer Service Representative",
+        "department": "Store Operations",
+        "location": "Seattle, WA",
+        "startDate": "Sep 1999",
+        "endDate": "Feb 2001",
+        "responsibilities": [
+          "Processed rental transactions and membership sign-ups",
+          "Rewound and inspected returned VHS tapes for damage",
+          "Provided movie recommendations based on customer preferences",
+          "Maintained 'Previously Viewed' sales section",
+          "Enforced rental policies and collected late fees"
+        ]
+      },
+      {
+        "title": "Customer Service Representative",
+        "department": "Store Operations",
+        "location": "Seattle, WA",
+        "startDate": "Jun 1998",
+        "endDate": "Aug 1999",
+        "responsibilities": [
+          "Greeted customers and processed rental returns",
+          "Re-shelved returned movies in correct genre sections",
+          "Operated VHS rewinding machines during closing shifts",
+          "Answered phone inquiries about movie availability",
+          "Cleaned and organized store during slow periods"
+        ]
+      }
+    ]
+  }
+]

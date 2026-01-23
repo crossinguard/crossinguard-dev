@@ -1,4 +1,6 @@
 ---
+import Card from "@components/global/Card.astro";
+
 interface Props {
     title: string;
     description: string;
@@ -10,80 +12,10 @@ interface Props {
 const { title, description, pubDate, id, tags } = Astro.props;
 ---
 
-<article class="box">
-    <p class="date">
-        {
-            pubDate.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-            })
-        }
-    </p>
-    <h2 class="title">
-        <a href={`/posts/${id}`} class="link">{title}</a>
-    </h2>
-    <p class="description">
-        {description}
-    </p>
-    {
-        tags && tags.length > 0 && (
-            <ul class="tags cluster">
-                {tags.map((tag) => (
-                    <li class="tag">#{tag}</li>
-                ))}
-            </ul>
-        )
-    }
-</article>
-
-<style>
-    .box {
-        --box-border-width: 1px;
-        --box-bg: var(--color-light-shade);
-        --box-padding: var(--space-s);
-        filter: drop-shadow(
-            var(--space-3xs) var(--space-3xs) var(--color-dark)
-        );
-        transition: filter 0.2s ease-in;
-    }
-
-    .box:hover {
-        filter: drop-shadow(var(--space-2xs) var(--space-2xs));
-    }
-
-    .box:has(.link:hover) {
-        filter: drop-shadow(
-            var(--space-2xs) var(--space-2xs) var(--color-primary-shade)
-        );
-    }
-
-    .date {
-        font-size: var(--step--1);
-    }
-
-    .title {
-        font-size: var(--step-2);
-    }
-
-    .link {
-        text-decoration: none;
-        transition: color 0.2s ease-in;
-    }
-
-    .link:hover {
-        color: var(--color-primary-shade);
-    }
-
-    .tags {
-        --gutter: var(--space-xs);
-        list-style: none;
-        padding: 0;
-        margin-block: 0;
-    }
-
-    .tag {
-        font-family: var(--font-family-mono);
-        font-size: var(--step--3);
-    }
-</style>
+<Card
+    title={title}
+    url={`/posts/${id}`}
+    description={description}
+    pubDate={pubDate}
+    tags={tags}
+/>

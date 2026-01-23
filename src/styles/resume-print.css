@@ -1,0 +1,23 @@
+@media print {
+    :root {
+        --font-size-h1: 18pt;
+        --font-size-h2: 16pt;
+        --font-size-h3: 14pt;
+        --font-size-h4: 12pt;
+        --font-size-body: 11pt;
+        --line-height: 1;
+    }
+
+    body > *:not(main) {
+        display: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+@page {
+    size: letter portrait;
+    margin: 0;
+}

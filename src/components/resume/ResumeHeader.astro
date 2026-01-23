@@ -1,0 +1,96 @@
+---
+import Pin from "@assets/icons/map-pin.svg";
+import Globe from "@assets/icons/globe-simple.svg";
+import Envelope from "@assets/icons/envelope.svg";
+
+interface Props {
+    name: string;
+    location: string;
+    email: string;
+    website: string;
+    description: string;
+}
+
+const { name, location, email, website, description } = Astro.props;
+---
+
+<header class="header">
+    <h1 class="header__title">{name}</h1>
+    <ul class="header__details">
+        <li>
+            <Pin class="header__details-icon" />
+            <p class="header__details-location">{location}</p>
+        </li>
+        <li>
+            <Envelope class="header__details-icon" />
+            <a class="email" href=`mailto:${email}`>
+                {email}
+            </a>
+        </li>
+        <li>
+            <Globe class="header__details-icon" />
+            <a class="header__details-website" href=`https://${website}`>
+                {website}
+            </a>
+        </li>
+    </ul>
+    <p class="header__description">{description}</p>
+</header>
+
+<style>
+    .header {
+        --gap: var(--space-xs);
+        display: grid;
+        gap: var(--gap);
+        border-block-end: solid 2px var(--color-dark);
+        padding-block-end: var(--space-2xs);
+        margin-block-end: var(--space-2xs);
+        line-height: var(--line-height);
+    }
+
+    .header__details {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0 var(--space-xs);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .header__details-icon {
+        display: inline-block;
+        vertical-align: -0.2em;
+        height: 1.5rem;
+        width: auto;
+    }
+
+    .header__details-location {
+        display: inline-block;
+    }
+
+    .header__description {
+        font-style: italic;
+        text-align: center;
+    }
+
+    @media print {
+        .header {
+            --gap: var(--space-3xs);
+            font-size: var(--font-size-body);
+        }
+
+        .header__title {
+            font-size: var(--font-size-h1);
+        }
+
+        .header__details-icon {
+            height: var(--font-size-body);
+        }
+
+        .header__description {
+            max-width: 75ch;
+            margin-inline: auto;
+        }
+    }
+</style>

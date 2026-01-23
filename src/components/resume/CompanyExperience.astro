@@ -1,0 +1,112 @@
+---
+interface Role {
+    title: string;
+    department: string;
+    location: string;
+    startDate: string;
+    endDate: string;
+    responsibilities: string[];
+}
+
+interface Props {
+    company: string;
+    roles: Role[];
+}
+
+const { company, roles } = Astro.props;
+---
+
+<article class="company">
+    <h3 class="company__title">{company}</h3>
+    {
+        roles.map((role) => (
+            <div class="role">
+                <div class="role__header">
+                    <h4 class="role__header-title">{role.title}</h4>
+                    <ul class="role__details">
+                        <li class="role__details-department">
+                            {role.department}
+                        </li>
+                        <li class="role__details-location">{role.location}</li>
+                        <li class="role__details-dates">
+                            {role.startDate} - {role.endDate}
+                        </li>
+                    </ul>
+                </div>
+                <ul class="role__responsibilities">
+                    {role.responsibilities.map((resp) => (
+                        <li>{resp}</li>
+                    ))}
+                </ul>
+            </div>
+        ))
+    }
+</article>
+
+<style>
+    .company__title {
+        padding-block: var(--space-xs);
+    }
+
+    .role {
+        margin-inline-start: var(--space-s);
+        padding-inline-start: var(--space-s);
+        border-inline-start: solid var(--color-secondary);
+    }
+
+    .role__details {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0 var(--space-xs);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-style: italic;
+        font-size: smaller;
+    }
+
+    .role__responsibilities {
+        padding: var(--space-s);
+        margin-block: 0;
+    }
+
+    @media print {
+        .company__title {
+            font-size: var(--font-size-h3);
+            padding-block: var(--space-3xs);
+        }
+
+        .role__header-title {
+            font-size: var(--font-size-h4);
+        }
+
+        .company {
+            font-size: var(--font-size-body);
+        }
+
+        .role {
+            margin-inline-start: var(--space-3xs);
+            padding-inline-start: var(--space-3xs);
+            border-inline-start: none;
+        }
+
+        .role__details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .role__details-location {
+            text-align: center;
+        }
+
+        .role__details-dates {
+            text-align: end;
+        }
+
+        .role__responsibilities {
+            padding-block: 0;
+            line-height: var(--line-height);
+        }
+    }
+</style>

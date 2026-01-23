@@ -1,0 +1,273 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    title: string;
+    url: string;
+    description?: string;
+    image?: ImageMetadata;
+    imageAlt?: string;
+    headingLevel?: 2 | 3 | 4;
+    pubDate?: Date;
+    updatedDate?: Date;
+    tags?: string[];
+    variant?: "default" | "featured" | "compact" | "horizontal";
+    external?: boolean;
+}
+
+const {
+    title,
+    url,
+    description,
+    image,
+    imageAlt = "",
+    headingLevel = 2,
+    pubDate,
+    updatedDate,
+    tags,
+    variant = "default",
+    external = false,
+} = Astro.props;
+
+const HeadingTag = `h${headingLevel}` as "h2" | "h3" | "h4";
+
+const formatDate = (date: Date) =>
+    date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+    });
+
+const linkAttrs = external
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {};
+---
+
+<article class:list={["card", `card--${variant}`]}>
+    <div class="card__content">
+        {
+            (pubDate || updatedDate) && (
+                <p class="card__date">
+                    {updatedDate ? (
+                        <>
+                            Updated:{" "}
+                            <time datetime={updatedDate.toISOString()}>
+                                {formatDate(updatedDate)}
+                            </time>
+                        </>
+                    ) : (
+                        <time datetime={pubDate!.toISOString()}>
+                            {formatDate(pubDate!)}
+                        </time>
+                    )}
+                </p>
+            )
+        }
+        <HeadingTag class="card__title">
+            <a href={url} class="card__link" {...linkAttrs}>
+                {title}
+                {
+                    external && (
+                        <span class="visually-hidden">
+                            (opens in a new tab)
+                        </span>
+                    )
+                }
+            </a>
+        </HeadingTag>
+        {description && <p class="card__description">{description}</p>}
+        <slot />
+        {
+            tags && tags.length > 0 && (
+                <ul class="card__tags cluster">
+                    {tags.map((tag) => (
+                        <li class="card__tag">#{tag}</li>
+                    ))}
+                </ul>
+            )
+        }
+    </div>
+    {
+        image && (
+            <div class="card__media">
+                <Image src={image} alt={imageAlt} class="card__image" />
+            </div>
+        )
+    }
+</article>
+
+<style>
+    /* ===================
+       BASE CARD STYLES
+       =================== */
+    .card {
+        --card-bg: var(--color-light-shade);
+        --card-padding: var(--space-s);
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--card-bg);
+        padding: var(--card-padding);
+        border: 1px solid var(--color-dark);
+        filter: drop-shadow(
+            var(--space-3xs) var(--space-3xs) var(--color-dark)
+        );
+        transition: filter 0.2s ease-in;
+    }
+
+    .card:hover,
+    .card:focus-within {
+        filter: drop-shadow(var(--space-2xs) var(--space-2xs));
+    }
+
+    .card:has(.card__link:hover),
+    .card:has(.card__link:focus) {
+        filter: drop-shadow(
+            var(--space-2xs) var(--space-2xs) var(--color-primary-shade)
+        );
+    }
+
+    /* ===================
+       CONTENT & MEDIA
+       =================== */
+    .card__content {
+        order: 2;
+    }
+
+    .card__media {
+        order: 1;
+        margin-block-end: var(--space-xs);
+    }
+
+    /* ===================
+       DATE
+       =================== */
+    .card__date {
+        font-size: var(--step--1);
+        margin: 0 0 var(--space-2xs) 0;
+    }
+
+    /* ===================
+       TITLE & LINK
+       =================== */
+    .card__title {
+        font-size: var(--step-2);
+        margin: 0;
+        color: inherit;
+    }
+
+    .card__link {
+        text-decoration: none;
+        transition: color 0.2s ease-in;
+    }
+
+    .card__link::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+    }
+
+    .card__link:hover,
+    .card__link:focus {
+        color: var(--color-primary-shade);
+    }
+
+    .card__link:focus {
+        outline: none;
+    }
+
+    .card__link:focus-visible {
+        outline: 2px solid var(--color-primary-shade);
+        outline-offset: 2px;
+    }
+
+    /* ===================
+       DESCRIPTION
+       =================== */
+    .card__description {
+        margin-block: var(--space-2xs) 0;
+    }
+
+    /* ===================
+       TAGS
+       =================== */
+    .card__tags {
+        --gutter: var(--space-xs);
+        list-style: none;
+        padding: 0;
+        margin-block: var(--space-xs) 0;
+    }
+
+    .card__tag {
+        font-family: var(--font-family-mono);
+        font-size: var(--step--2);
+    }
+
+    /* ===================
+       IMAGE
+       =================== */
+    .card__image {
+        width: 100%;
+        aspect-ratio: 2 / 1;
+        object-fit: cover;
+    }
+
+    /* ===================
+       VARIANT: FEATURED
+       =================== */
+    .card--featured {
+        --card-padding: var(--space-m);
+    }
+
+    .card--featured .card__title {
+        font-size: var(--step-3);
+    }
+
+    .card--featured .card__description {
+        font-size: var(--step-1);
+    }
+
+    /* ===================
+       VARIANT: COMPACT
+       =================== */
+    .card--compact {
+        --card-padding: var(--space-xs);
+    }
+
+    .card--compact .card__title {
+        font-size: var(--step-1);
+    }
+
+    .card--compact .card__description {
+        font-size: var(--step--1);
+    }
+
+    .card--compact .card__media {
+        display: none;
+    }
+
+    /* ===================
+       VARIANT: HORIZONTAL
+       =================== */
+    .card--horizontal {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .card--horizontal .card__content {
+        order: 1;
+        flex: 1;
+    }
+
+    .card--horizontal .card__media {
+        order: 2;
+        flex: 0 0 40%;
+        margin-block-end: 0;
+        margin-inline-start: var(--space-s);
+    }
+
+    .card--horizontal .card__image {
+        aspect-ratio: 3 / 2;
+    }
+</style>

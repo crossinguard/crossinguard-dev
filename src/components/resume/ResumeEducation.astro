@@ -1,0 +1,59 @@
+---
+import educationData from "./data/education.json";
+
+interface Education {
+    degree: string;
+    field: string;
+    institution: string;
+    graduationYear: number;
+}
+---
+
+<section class="education">
+    <h2 class="education__title">II. Education</h2>
+    <ul class="education__list">
+        {
+            educationData.map((edu: Education) => (
+                <li class="education__list-item">
+                    <span class="degree">
+                        {edu.degree}, {edu.field}
+                    </span>
+                    <span class="institution">
+                        {edu.institution} {edu.graduationYear}
+                    </span>
+                </li>
+            ))
+        }
+    </ul>
+</section>
+
+<style>
+    .education__title {
+        text-transform: uppercase;
+        padding-block: var(--space-3xs);
+    }
+
+    .institution {
+        font-style: italic;
+        font-size: smaller;
+        white-space: nowrap;
+    }
+
+    @media print {
+        .education__title {
+            font-size: var(--font-size-h2);
+        }
+
+        .education__list {
+            padding-inline-start: var(--space-xs);
+            font-size: var(--font-size-body);
+            margin: 0;
+            line-height: var(--line-height);
+        }
+
+        .education__list-item {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>

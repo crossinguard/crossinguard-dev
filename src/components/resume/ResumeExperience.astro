@@ -1,0 +1,22 @@
+---
+import experienceData from "./data/experience.json";
+
+import CompanyExperience from "./CompanyExperience.astro";
+---
+
+<section class="experience">
+    <h2 class="experience__title">I. Professional Experience</h2>
+    {experienceData.map((company) => <CompanyExperience {...company} />)}
+</section>
+
+<style>
+    .experience__title {
+        text-transform: uppercase;
+    }
+
+    @media print {
+        .experience__title {
+            font-size: var(--font-size-h2);
+        }
+    }
+</style>
