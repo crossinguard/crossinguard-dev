@@ -5,9 +5,10 @@ interface Props {
     icon: SvgComponent;
     text?: string;
     variant?: "inline" | "stacked";
+    size?: string;
 }
 
-const { icon: IconSvg, text, variant = "inline" } = Astro.props;
+const { icon: IconSvg, text, variant = "inline", size = "1em" } = Astro.props;
 ---
 
 <span class="icon" data-variant={variant}>
