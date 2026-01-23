@@ -40,6 +40,6 @@ export const projectsPageConfig: Array<{
 }> = [
   { key: "projectsWebDev", limit: 6 },
   { key: "projectsAssessment", limit: 6 },
-  { key: "projectsMathEd", limit: 6 },
+  // { key: "projectsMathEd", limit: 6 },
   { key: "projectsCreativeClub", limit: 6 },
 ];

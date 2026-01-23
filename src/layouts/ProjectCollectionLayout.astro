@@ -9,11 +9,9 @@ import {
 
 interface Props {
     collectionKey: ProjectCollectionKey;
-    layout?: string;
-    dataLayout?: string;
 }
 
-const { collectionKey, layout, dataLayout } = Astro.props;
+const { collectionKey } = Astro.props;
 const config = projectCollections[collectionKey];
 ---
 
@@ -22,10 +20,6 @@ const config = projectCollections[collectionKey];
         <h1>{config.name}</h1>
         <BreadcrumbNav />
         <p>{config.description}</p>
-        <GridProjects
-            collection={collectionKey}
-            layout={layout}
-            data-layout={dataLayout}
-        />
+        <GridProjects collection={collectionKey} />
     </section>
 </BaseLayout>

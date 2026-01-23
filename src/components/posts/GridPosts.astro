@@ -12,15 +12,5 @@ const sortedPosts = allPosts.sort(
 ---
 
 <section class="grid">
-    {
-        sortedPosts.map((post) => (
-            <CardPost
-                title={post.data.title}
-                description={post.data.description}
-                pubDate={post.data.pubDate}
-                id={post.id}
-                tags={post.data.tags}
-            />
-        ))
-    }
+    {sortedPosts.map((post) => <CardPost post={post} />)}
 </section>

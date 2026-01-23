@@ -16,11 +16,8 @@ import {
                     <h2>{config.name}</h2>
                     <p>{config.description}</p>
 
-                    <GridProjects
-                        collection={key}
-                        limit={limit}
-                        layout="stack"
-                    />
+                    <GridProjects collection={key} limit={limit} />
+
                     <a href={`/projects/${config.path}`}>
                         View all {config.name.toLowerCase()} projects
                     </a>

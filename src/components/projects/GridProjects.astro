@@ -1,20 +1,18 @@
 ---
 import CardProject from "./CardProject.astro";
-import {
-    projectCollections,
-    type ProjectCollectionKey,
-} from "../../data/projectCollections";
+import { type ProjectCollectionKey } from "@data/projectCollections";
 import { getCollection } from "astro:content";
 
 interface Props {
-    collection: ProjectCollectionKey; // The project collection to display
-    layout?: string; // Optional CSS class for layout styling
-    limit?: number; // Optional limit on number of projects to display
+    collection: ProjectCollectionKey;
+    limit?: number;
 }
 
-const { collection, layout, limit } = Astro.props;
+const { collection, limit } = Astro.props;
 
-const allProjects = await getCollection(collection);
+const allProjects = await getCollection(collection, ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+});
 
 const sortedProjects = allProjects.sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -23,22 +21,12 @@ const sortedProjects = allProjects.sort(
 const displayedProjects = limit
     ? sortedProjects.slice(0, limit)
     : sortedProjects;
-
-const basePath = projectCollections[collection].path;
 ---
 
-<div class={layout}>
+<section class="grid">
     {
         displayedProjects.map((project) => (
-            <CardProject
-                title={project.data.title}
-                description={project.data.description}
-                pubDate={project.data.pubDate}
-                status={project.data.status}
-                id={project.id}
-                basePath={basePath}
-                tags={project.data.tags}
-            />
+            <CardProject project={project} collectionKey={collection} />
         ))
     }
-</div>
+</section>

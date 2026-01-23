@@ -1,21 +1,18 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import Card from "@components/global/Card.astro";
 
 interface Props {
-    title: string;
-    description: string;
-    pubDate: Date;
-    id: string;
-    tags?: string[];
+    post: CollectionEntry<"posts">;
 }
 
-const { title, description, pubDate, id, tags } = Astro.props;
+const { post } = Astro.props;
 ---
 
 <Card
-    title={title}
-    url={`/posts/${id}`}
-    description={description}
-    pubDate={pubDate}
-    tags={tags}
+    title={post.data.title}
+    url={`/posts/${post.id}`}
+    description={post.data.description}
+    pubDate={post.data.pubDate}
+    tags={post.data.tags}
 />
