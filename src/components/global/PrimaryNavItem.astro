@@ -1,0 +1,42 @@
+---
+interface Props {
+    link: string;
+    label: string;
+}
+
+const { link, label } = Astro.props;
+
+const normalize = (path: string) => path.replace(/\/$/, "") || "/";
+const isCurrentPage = normalize(Astro.url.pathname) === normalize(link);
+---
+
+<li>
+    <a href={link} aria-current={isCurrentPage ? "page" : undefined}>
+        {label}
+    </a>
+</li>
+
+<style>
+    a {
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-shadow: 1px 1px 2px var(--color-dark);
+        transition: color 0.2s ease;
+    }
+
+    a[aria-current="page"] {
+        text-decoration: underline;
+        text-decoration-color: var(--color-pop);
+        text-decoration-thickness: 0.15rem;
+        text-underline-offset: 0.25rem;
+    }
+
+    a:hover {
+        color: var(--color-secondary);
+        text-decoration: underline;
+        text-decoration-color: var(--color-pop);
+        text-decoration-thickness: 0.15rem;
+        text-underline-offset: 0.25rem;
+    }
+</style>

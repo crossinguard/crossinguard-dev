@@ -1,46 +1,11 @@
 ---
-import Icon from "@components/global/Icon.astro";
-import crystal from "@icons/crystal.svg";
 import SkipLink from "./SkipLink.astro";
-import { getCollection } from "astro:content";
-
-const { pathname } = Astro.url;
-const allPages = await getCollection("pages");
-const navPages = allPages
-    .filter((page) => page.data.showInNav !== false)
-    .sort((a, b) => (a.data.navOrder || 999) - (b.data.navOrder || 999));
+import PrimaryNav from "./PrimaryNav.astro";
 ---
 
 <header role="banner">
     <SkipLink />
-    <div class="site-head wrapper repel">
-        <a
-            href="/"
-            aria-label="crossinguard.dev home"
-            class="site-head__brand cluster"
-        >
-            <Icon icon={crystal} text="crossinguard.dev" />
-        </a>
-        <nav aria-label="primary">
-            <ul role="list" class="cluster">
-                {
-                    navPages.map((page) => {
-                        const pageUrl = `/${page.id}`;
-                        return (
-                            <li>
-                                <a
-                                    href={pageUrl}
-                                    class={pathname === pageUrl ? "active" : ""}
-                                >
-                                    {page.data.title}
-                                </a>
-                            </li>
-                        );
-                    })
-                }
-            </ul>
-        </nav>
-    </div>
+    <PrimaryNav />
 </header>
 
 <style>
@@ -52,67 +17,5 @@ const navPages = allPages
             0 0.5rem var(--color-secondary),
             0 0.75rem var(--color-tertiary);
         padding-block: var(--space-s) var(--space-xs);
-    }
-
-    .site-head {
-        container-type: inline-size;
-    }
-
-    @container (max-width: 650px) {
-        .site-head > * {
-            margin-inline: auto;
-        }
-    }
-
-    .site-head :focus {
-        outline-color: var(--color-light);
-    }
-
-    .site-head__brand {
-        --gutter: var(--space-2xs);
-        text-decoration: none;
-    }
-
-    .site-head__brand img {
-        width: var(--space-xl);
-    }
-
-    [data-icon] {
-        font-size: var(--step-4);
-    }
-
-    .site-head__brand {
-        font-family: var(--font-family-accent);
-        text-shadow: 1px 1px 2px var(--color-dark);
-        font-size: var(--step-1);
-        transition: color 0.2s ease;
-    }
-
-    nav ul {
-        padding: 0;
-    }
-
-    a {
-        font-weight: 600;
-        text-transform: uppercase;
-        text-decoration: none;
-        text-shadow: 1px 1px 2px var(--color-dark);
-        transition: color 0.2s ease;
-    }
-
-    .active {
-        text-decoration: underline;
-        text-decoration-color: var(--color-pop);
-        text-decoration-thickness: 0.15rem;
-        text-underline-offset: 0.25rem;
-    }
-
-    .site-head__brand:hover p,
-    nav a:hover {
-        color: var(--color-secondary);
-        text-decoration: underline;
-        text-decoration-color: var(--color-pop);
-        text-decoration-thickness: 0.15rem;
-        text-underline-offset: 0.25rem;
     }
 </style>

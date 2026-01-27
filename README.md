@@ -8,9 +8,9 @@ All commands are run from the root of the project, from a terminal:
 
 | Command | Action |
 | :--- | :--- |
-| `yarn dev` | Start development server at `localhost:4321` |
-| `yarn build` | Build production site to `./dist/` |
-| `yarn preview` | Preview build locally |
+| `bun run dev` | Start development server at `localhost:4321` |
+| `bun run build` | Build production site to `./dist/` |
+| `bun run preview` | Preview build locally |
 
 ## Tools & Resources
 

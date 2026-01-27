@@ -1,0 +1,82 @@
+---
+import Crystal from "@icons/crystal.svg";
+import PrimaryNavItem from "./PrimaryNavItem.astro";
+import { getCollection } from "astro:content";
+
+const { pathname } = Astro.url;
+const allPages = await getCollection("pages");
+const navPages = allPages
+    .filter((page) => page.data.showInNav !== false)
+    .sort((a, b) => (a.data.navOrder || 999) - (b.data.navOrder || 999));
+---
+
+<div class="site-head wrapper repel">
+    <a
+        href="/"
+        aria-label="crossinguard.dev home"
+        class="site-head__brand cluster"
+    >
+        <Crystal class="icon" height="2em" />
+        crossinguard.dev
+    </a>
+    <nav aria-label="primary">
+        <ul role="list" class="cluster">
+            {
+                navPages.map((page) => (
+                    <PrimaryNavItem
+                        link={`/${page.id}`}
+                        label={page.data.title}
+                    />
+                ))
+            }
+        </ul>
+    </nav>
+</div>
+<style>
+    .site-head {
+        container-type: inline-size;
+    }
+
+    @container (max-width: 650px) {
+        .site-head > * {
+            margin-inline: auto;
+        }
+    }
+
+    .site-head :focus {
+        outline-color: var(--color-light);
+    }
+
+    .site-head__brand {
+        --gutter: var(--space-2xs);
+        text-decoration: none;
+    }
+
+    .site-head__brand img {
+        width: var(--space-xl);
+    }
+
+    .site-head__brand {
+        font-family: var(--font-family-accent);
+        text-shadow: 1px 1px 2px var(--color-dark);
+        font-size: var(--step-1);
+        transition: color 0.2s ease;
+    }
+
+    nav ul {
+        padding: 0;
+    }
+
+    .icon {
+        height: 2em;
+        width: auto;
+    }
+
+    .site-head__brand:hover p {
+        color: var(--color-secondary);
+        text-decoration: underline;
+        text-decoration-color: var(--color-pop);
+        text-decoration-thickness: 0.15rem;
+        text-underline-offset: 0.25rem;
+    }
+</style>
