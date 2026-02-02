@@ -39,11 +39,10 @@ In college I bounced back and forth between majoring in math education or comput
 <style>
     main img {
         margin-inline: auto;
-        width: 50%;
-        max-width: 40rem;
+        width: 90%;
+        max-width: calc(500 / 16 * 1rem);
         height: auto;
-        border: 0.5rem solid var(--color-tertiary);
-        border-radius: 5rem;
-        /*padding: 1.5rem;*/
+        border: 0.5rem solid var(--color-secondary);
+        border-radius: 50%;
     }
 </style>
