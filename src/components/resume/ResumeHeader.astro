@@ -1,7 +1,5 @@
 ---
-import Pin from "@assets/icons/map-pin.svg";
-import Globe from "@assets/icons/globe-simple.svg";
-import Envelope from "@assets/icons/envelope.svg";
+import { Icon } from "astro-icon/components";
 
 interface Props {
     name: string;
@@ -18,17 +16,17 @@ const { name, location, email, website, description } = Astro.props;
     <h1 class="header__title">{name}</h1>
     <ul class="header__details">
         <li>
-            <Pin class="header__details-icon" />
+            <Icon class="header__details-icon" name="map-pin" />
             <p class="header__details-location">{location}</p>
         </li>
         <li>
-            <Envelope class="header__details-icon" />
+            <Icon class="header__details-icon" name="envelope" />
             <a class="email" href=`mailto:${email}`>
                 {email}
             </a>
         </li>
         <li>
-            <Globe class="header__details-icon" />
+            <Icon class="header__details-icon" name="globe-simple" />
             <a class="header__details-website" href=`https://${website}`>
                 {website}
             </a>
@@ -61,8 +59,6 @@ const { name, location, email, website, description } = Astro.props;
     .header__details-icon {
         display: inline-block;
         vertical-align: -0.2em;
-        height: 1.5rem;
-        width: auto;
     }
 
     .header__details-location {

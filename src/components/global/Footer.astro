@@ -1,13 +1,11 @@
 ---
-import Icon from "@components/global/Icon.astro";
-import envelope from "@icons/envelope.svg";
-import codeberg from "@icons/codeberg.svg";
+import { Icon } from "astro-icon/components";
 
-const today = new Date();
+const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-    <p>W. Brett Egbert &copy; {today.getFullYear()}</p>
+    <p>W. Brett Egbert &copy; {currentYear}</p>
     <p><em>stay curious</em></p>
     <ul class="social cluster">
         <li>
@@ -15,8 +13,10 @@ const today = new Date();
                 href="mailto:brett@crossinguard.dev"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="social__link"
             >
-                <Icon icon={envelope} text="Email" variant="stacked" />
+                <Icon class="social__icon" name="envelope" />
+                Email
             </a>
         </li>
         <li>
@@ -24,8 +24,10 @@ const today = new Date();
                 href="https://codeberg.org/crossinguard"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="social__link"
             >
-                <Icon icon={codeberg} text="Codeberg" variant="stacked" />
+                <Icon class="social__icon" name="codeberg" />
+                Codeberg
             </a>
         </li>
     </ul>
@@ -55,15 +57,23 @@ const today = new Date();
         list-style: none;
     }
 
-    .social a {
+    .social__link {
         text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-color: var(--color-secondary);
+            text-decoration-thickness: 3px;
+            text-underline-offset: 3px;
+            font-weight: 700;
+
+            .social__icon {
+                color: var(--color-secondary);
+            }
+        }
     }
 
-    .social a:hover {
-        text-decoration: underline;
-        text-decoration-color: var(--color-secondary);
-        text-decoration-thickness: 3px;
-        text-underline-offset: 3px;
-        font-weight: 700;
+    .social__icon {
+        margin-inline: auto;
     }
 </style>

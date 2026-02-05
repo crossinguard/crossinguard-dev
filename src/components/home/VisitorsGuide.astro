@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
 
 const allPages = await getCollection("pages");
 const navPages = allPages
@@ -17,9 +18,12 @@ const navPages = allPages
     {
         navPages.map((page) => (
             <div class="box flow">
-                <h3>
-                    <a href={`/${page.id}`}>{page.data.title}</a>
-                </h3>
+                <div class="header">
+                    <Icon class="icon" name={page.data.icon} />
+                    <h3>
+                        <a href={`/${page.id}`}>{page.data.title}</a>
+                    </h3>
+                </div>
                 <p>{page.data.description}</p>
             </div>
         ))
@@ -34,17 +38,24 @@ const navPages = allPages
         border: 2px solid var(--color-dark);
     }
 
-    h3 {
+    .header {
         display: flex;
         gap: var(--space-3xs);
-        font-size: var(--step-2);
-    }
 
-    a {
-        transition: color 0.2s ease-in;
-    }
+        .icon {
+            font-size: var(--step-4);
+        }
 
-    a:hover {
-        color: var(--color-primary);
+        h3 {
+            font-size: var(--step-2);
+        }
+
+        a {
+            transition: color 0.2s ease-in;
+
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
     }
 </style>

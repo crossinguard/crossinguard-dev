@@ -1,5 +1,5 @@
 ---
-import Crystal from "@icons/crystal.svg";
+import { Icon } from "astro-icon/components";
 import PrimaryNavItem from "./PrimaryNavItem.astro";
 import { getCollection } from "astro:content";
 
@@ -16,11 +16,11 @@ const navPages = allPages
         aria-label="crossinguard.dev home"
         class="site-head__brand cluster"
     >
-        <Crystal class="icon" height="2em" />
+        <Icon class="logo" name="crystal" />
         crossinguard.dev
     </a>
     <nav aria-label="primary">
-        <ul role="list" class="cluster">
+        <ul role="list" class="cluster nav__list">
             {
                 navPages.map((page) => (
                     <PrimaryNavItem
@@ -33,50 +33,37 @@ const navPages = allPages
     </nav>
 </div>
 <style>
-    .site-head {
-        container-type: inline-size;
-    }
-
     @container (max-width: 650px) {
         .site-head > * {
             margin-inline: auto;
         }
     }
 
-    .site-head :focus {
-        outline-color: var(--color-light);
+    .site-head {
+        container-type: inline-size;
     }
 
     .site-head__brand {
         --gutter: var(--space-2xs);
-        text-decoration: none;
-    }
-
-    .site-head__brand img {
-        width: var(--space-xl);
-    }
-
-    .site-head__brand {
         font-family: var(--font-family-accent);
         text-shadow: 1px 1px 2px var(--color-dark);
-        font-size: var(--step-1);
+        text-decoration: none;
         transition: color 0.2s ease;
+
+        &:hover {
+            color: var(--color-secondary);
+            text-decoration: underline;
+            text-decoration-color: var(--color-pop);
+            text-decoration-thickness: 0.15rem;
+            text-underline-offset: 0.5rem;
+        }
+
+        .logo {
+            font-size: 2em;
+        }
     }
 
-    nav ul {
+    .nav__list {
         padding: 0;
-    }
-
-    .icon {
-        height: 2em;
-        width: auto;
-    }
-
-    .site-head__brand:hover p {
-        color: var(--color-secondary);
-        text-decoration: underline;
-        text-decoration-color: var(--color-pop);
-        text-decoration-thickness: 0.15rem;
-        text-underline-offset: 0.25rem;
     }
 </style>

@@ -12,6 +12,10 @@
   },
   "dependencies": {
     "@astrojs/mdx": "4.3.13",
-    "astro": "5.16.11"
+    "astro": "5.17.1",
+    "astro-icon": "^1.1.5"
+  },
+  "devDependencies": {
+    "@iconify-json/ph": "^1.2.2"
   }
 }
