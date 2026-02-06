@@ -3,12 +3,6 @@ title: Blockbuster days driftin' away
 description: The end of late fees, marrying my assistant store manager, and
   BFF-ing my shift lead
 pubDate: 2024-05-01
-tags:
-  - test
-  - tags
-relatedPosts:
-  - I want to be in a band
-isFeatured: true
 ---
 
 ## The Setup
