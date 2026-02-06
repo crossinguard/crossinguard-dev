@@ -1,8 +1,14 @@
 ---
 title: Mathematics Educator
 description: A summary of my professional experiences as a mathematics educator
-pubDate: 2024-09-22
+pubDate: 2026-02-06
 updatedDate: 2024-11-11
+cover:
+  src: ../../assets/posts/cat.jpg
+  alt: cat
+tags:
+  - asdf
+draft: true
 ---
 
 ## Short version
