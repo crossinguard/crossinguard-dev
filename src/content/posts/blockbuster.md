@@ -1,7 +1,16 @@
 ---
 title: Blockbuster days driftin' away
-description: The end of late fees, marrying my assistant store manager, and BFF-ing my shift lead
+description: The end of late fees, marrying my assistant store manager, and
+  BFF-ing my shift lead
 pubDate: 2024-05-01
+tags:
+  - test
+  - tags
+relatedPosts:
+  - I want to be in a band
+  - Making a digital resume
+  - My year with Scrimba
+isFeatured: true
 ---
 
 ## The Setup
