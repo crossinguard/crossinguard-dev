@@ -1,12 +1,11 @@
 ---
 import experienceData from "./data/experience.json";
-
-import CompanyExperience from "./CompanyExperience.astro";
+import ResumeExperienceItem from "./ResumeExperienceItem.astro";
 ---
 
 <section class="experience">
     <h2 class="experience__title">I. Professional Experience</h2>
-    {experienceData.map((company) => <CompanyExperience {...company} />)}
+    {experienceData.map((company) => <ResumeExperienceItem {...company} />)}
 </section>
 
 <style>

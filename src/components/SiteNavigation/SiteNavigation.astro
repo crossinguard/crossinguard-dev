@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
-import PrimaryNavItem from "./PrimaryNavItem.astro";
 import { getCollection } from "astro:content";
+import SiteNavigationItem from "./SiteNavigationItem.astro";
 
 const { pathname } = Astro.url;
 const allPages = await getCollection("pages");
@@ -23,7 +23,7 @@ const navPages = allPages
         <ul role="list" class="cluster nav__list">
             {
                 navPages.map((page) => (
-                    <PrimaryNavItem
+                    <SiteNavigationItem
                         link={`/${page.id}`}
                         label={page.data.title}
                     />

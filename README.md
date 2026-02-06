@@ -19,8 +19,9 @@ All commands are run from the root of the project, from a terminal:
   - [astro icons](https://www.astroicon.dev/)
 - online repository: [Codeberg](https://codeberg.org/)
 - web hosting platform: [Netlify](https://www.netlify.com/)
-- favicon generator: [favicon.io](https://favicon.io/favicon-converter/)
 - CSS reset: [Piccalilli](https://piccalil.li/blog/a-more-modern-css-reset/)
-- color palette generator: [RampenSau](https://meodai.github.io/rampensau/)
-- CSS palette shades: [Tailwind CSS Color Generator](https://uicolors.app/generate)
 - fluid design: [Utopia](https://utopia.fyi/)
+
+## Content Collections
+
+<!--  TODO: insert mermaid diagram of content collections and their schema -->
