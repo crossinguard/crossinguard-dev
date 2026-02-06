@@ -35,35 +35,36 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
-      - {
-          label: "Publish Date",
-          name: "pubDate",
-          widget: "datetime",
-          date_format: "YYYY-MM-DD",
-          time_format: false,
-        }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
       - {
           label: "Updated Date",
           name: "updatedDate",
           widget: "datetime",
-          date_format: "YYYY-MM-DD",
-          time_format: false,
           required: false,
         }
-      - label: "Cover Image"
-        name: "cover"
-        widget: "object"
-        required: false
-        collapsed: true
-        fields:
-          - { label: "Image", name: "src", widget: "image" }
-          - { label: "Alt Text", name: "alt", widget: "string" }
+      - {
+          label: "Cover Image",
+          name: "image",
+          widget: "image",
+          required: false,
+        }
+      - {
+          label: "Image Caption",
+          name: "imageAlt",
+          widget: "string",
+          required: false,
+        }
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - {
-          label: "Draft",
-          name: "draft",
+          label: "Is the post a draft?",
+          name: "isDraft",
           widget: "boolean",
           default: false,
-          required: false,
+        }
+      - {
+          label: "Should the post be featured?",
+          name: "isFeatured",
+          widget: "boolean",
+          default: false,
         }
       - { label: "Body", name: "body", widget: "markdown" }
