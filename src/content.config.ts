@@ -30,21 +30,22 @@ const posts = defineCollection({
     pattern: "**/*.{md,mdx}",
     base: "./src/content/posts",
   }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    image: z
-      .object({
-        src: z.string(),
-        alt: z.string(),
-      })
-      .optional(),
-    pubDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    tags: z.array(z.string()).optional(),
-    draft: z.boolean().optional(),
-    relatedPosts: z.array(reference("posts")).optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      cover: z
+        .object({
+          src: image(),
+          alt: z.string(),
+        })
+        .optional(),
+      pubDate: z.coerce.date(),
+      updatedDate: z.coerce.date().optional(),
+      tags: z.array(z.string()).optional(),
+      draft: z.boolean().optional(),
+      relatedPosts: z.array(reference("posts")).optional(),
+    }),
 });
 
 // Common to all projects

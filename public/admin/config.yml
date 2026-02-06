@@ -1,0 +1,59 @@
+backend:
+  name: git-gateway
+  branch: main
+
+site_url: https://crossinguard.dev/
+
+logo:
+  src: src/assets/icons/crystal.svg
+  show_in_header: true
+
+# For local development testing
+local_backend: true
+
+publish_mode: editorial_workflow
+
+media_folder: "src/assets/posts"
+public_folder: "../../assets/posts"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - {
+          label: "Publish Date",
+          name: "pubDate",
+          widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - {
+          label: "Updated Date",
+          name: "updatedDate",
+          widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+          required: false,
+        }
+      - label: "Cover Image"
+        name: "cover"
+        widget: "object"
+        required: false
+        collapsed: true
+        fields:
+          - { label: "Image", name: "src", widget: "image" }
+          - { label: "Alt Text", name: "alt", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - {
+          label: "Draft",
+          name: "draft",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
