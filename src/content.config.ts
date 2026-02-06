@@ -14,12 +14,6 @@ const pages = defineCollection({
     title: z.string(),
     description: z.string(),
     icon: z.string().optional(),
-    image: z
-      .object({
-        src: z.string(),
-        alt: z.string(),
-      })
-      .optional(),
     navOrder: z.number().optional(),
     showInNav: z.boolean().default(true),
   }),
@@ -34,16 +28,13 @@ const posts = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
-      cover: z
-        .object({
-          src: image(),
-          alt: z.string(),
-        })
-        .optional(),
+      image: image().optional(),
+      imageAlt: z.string().optional(),
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       tags: z.array(z.string()).optional(),
-      draft: z.boolean().optional(),
+      isDraft: z.boolean().optional().default(false),
+      isFeatured: z.boolean().optional().default(false),
       relatedPosts: z.array(reference("posts")).optional(),
     }),
 });
