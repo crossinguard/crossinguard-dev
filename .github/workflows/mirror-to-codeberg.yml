@@ -1,0 +1,15 @@
+name: Mirror to Codeberg
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: yesolutions/mirror-action@master
+        with:
+          REMOTE: 'https://codeberg.org/crossinguard/crossinguard-dev.git'
+          GIT_USERNAME: crossinguard
+          GIT_PASSWORD: ${{ secrets.CODEBERG_TOKEN }}
