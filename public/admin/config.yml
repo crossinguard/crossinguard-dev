@@ -5,6 +5,7 @@ backend:
   branch: main
   identity_url: https://auth.decapbridge.com/sites/72ffc87e-ca50-45fe-8138-8a1b1db3e3d9
   gateway_url: https://gateway.decapbridge.com
+  squash_merges: true
 
   # See who did what (optional)
   commit_messages:
@@ -27,44 +28,104 @@ media_folder: "src/assets/posts"
 public_folder: "@assets/posts"
 
 collections:
-  - name: "posts"
-    label: "Posts"
+  - label: "Posts"
+    name: "posts"
     folder: "src/content/posts"
     create: true
-    slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          hint: "Appears as the main heading and as the label on the browser tab",
+        }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          hint: "Short summary shown in post previews and search results",
+        }
+      - {
+          label: "Publish Date",
+          name: "pubDate",
+          widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          picker_utc: true,
+          hint: "Identifies when this post was first published and provides sorting on the main posts page",
+        }
       - {
           label: "Updated Date",
           name: "updatedDate",
           widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          picker_utc: true,
           required: false,
+          hint: "Idenitifies when significant changes were made to this post after publishing",
         }
       - {
           label: "Cover Image",
           name: "image",
           widget: "image",
           required: false,
+          hint: "Displayed at the top of the post and in previews",
         }
       - {
-          label: "Image Caption",
+          label: "Cover Image Alt Text",
           name: "imageAlt",
           widget: "string",
           required: false,
+          hint: "Describes the image for screen readers and accessibility. If a cover image is used, alt text is not optional",
         }
-      - { label: "Tags", name: "tags", widget: "list", required: false }
       - {
-          label: "Is the post a draft?",
+          label: "Tags",
+          name: "tags",
+          widget: "list",
+          required: false,
+          hint: "Keywords to help readers find related posts. Enter as comma separated values",
+        }
+      - {
+          label: "Related Posts",
+          name: "relatedPosts",
+          widget: "relation",
+          collection: "posts",
+          value_field: "title",
+          search_fields: ["title"],
+          value_fields: ["title", "pubDate", "description"],
+          multiple: true,
+          hint: "Directs to other posts relevant to this one",
+        }
+      - {
+          label: "Draft post?",
           name: "isDraft",
           widget: "boolean",
-          default: false,
+          required: false,
+          hint: "Drafts are hidden from the live site",
         }
       - {
-          label: "Should the post be featured?",
+          label: "Featured post?",
           name: "isFeatured",
           widget: "boolean",
-          default: false,
+          required: false,
+          hint: "Featured posts appear larger at the top of the posts page",
         }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          buttons:
+            [
+              bold,
+              italic,
+              code,
+              link,
+              heading-two,
+              heading-three,
+              heading-four,
+              heading-five,
+              heading-six,
+              quote,
+              bulleted-list,
+              numbered-list,
+            ],
+          hint: "The main content of your post",
+        }
