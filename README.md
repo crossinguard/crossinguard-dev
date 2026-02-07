@@ -15,11 +15,9 @@ All commands are run from the root of the project, from a terminal:
 ## Tools & Resources
 
 - web framework: [Astro](https://astro.build/)
-  - [astro breadcrumbs navigation](https://docs.astro-breadcrumbs.kasimir.dev/)
   - [astro icons](https://www.astroicon.dev/)
 - online repository: [Codeberg](https://codeberg.org/)
 - web hosting platform: [Netlify](https://www.netlify.com/)
-- CSS reset: [Piccalilli](https://piccalil.li/blog/a-more-modern-css-reset/)
 - fluid design: [Utopia](https://utopia.fyi/)
 
 ## Content Collections
