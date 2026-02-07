@@ -80,9 +80,3 @@ Eventually this will be a discussion about the resources I found most useful for
 CSS alone is an ocean of depth, not just in technical use but in *how* it gets used. I'm not a Tailwind boi, I think it takes all of the fun out of this, and makes my HTML obnoxious to read. I like writing CSS. I love writing CSS. I just want to do it effectively. And that's only 1 of the core pieces, we haven't even touched HTML itself, JavaScript, TypeScript, Astro-specific approaches, content schemas, or any of the other ocean-sized paths to plunge into. 
 
 This section will go over some of my trusted resources that inspire the approaches I use when working on this website and others.
-
-## Content Collections
-
-### Posts
-
-![Posts content collection schema](@assets/diagrams/schema/posts.svg)

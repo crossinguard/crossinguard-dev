@@ -22,11 +22,7 @@ All commands are run from the root of the project, from a terminal:
 
 ## Content Collections
 
-### Posts
-
-![Posts content collection schema](src/assets/diagrams/schema/posts.svg)
-
-### Posts
+### Posts 
 
 | Field | Type | Constraint |
 | :--- | :--- | :--- |
