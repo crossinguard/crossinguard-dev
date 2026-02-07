@@ -22,4 +22,22 @@ All commands are run from the root of the project, from a terminal:
 
 ## Content Collections
 
-<!--  TODO: insert mermaid diagram of content collections and their schema -->
+### Posts
+
+![Posts content collection schema](src/assets/diagrams/schema/posts.svg)
+
+### Posts
+
+| Field | Type | Constraint |
+| :--- | :--- | :--- |
+| title | string | required |
+| description | string | required |
+| pubDate | date | required |
+| updatedDate | date | |
+| image | Image | |
+| imageAlt | string | |
+| tags | string[] | |
+| relatedPosts | reference[] | |
+| isDraft | boolean | |
+| isFeatured | boolean | |
+| body | markdown | required |

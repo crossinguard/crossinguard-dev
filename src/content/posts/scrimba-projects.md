@@ -2,7 +2,7 @@
 title: My year with Scrimba
 description: Projects created while bouncing around Scrimba learning paths
 pubDate: 2025-11-07
-updatedDate: "2025-11-25"
+updatedDate: 2025-11-25
 tags:
  - web-dev
  - learning

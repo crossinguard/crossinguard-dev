@@ -39,7 +39,7 @@ I legitimately love writing HTML and CSS. Thinking through the structure of info
 
 Astro is basically a superset of HTML. In fact, you can take an `index.html` file, rename it to `index.astro`, and everything should work the same as before. Astro isn't it's own language, it is standard HTML, standard CSS, and JSX-like JavaScript all wrapped up in a single file. 
 
-Within my Astro site, I am using the excellent [Astro Icon](https://www.astroicon.dev/) integration. This gives me an `<Icon />` component  to make use of local `.svg` files. It can also pull in new icons through [Iconify](https://icon-sets.iconify.design/), such as my icon family of choice [Phosphor](https://phosphoricons.com/). I only have a few icons sprinkled throughout my site, but it's nice to have this for when I want to bring new ones in. One day I hope to make my own small set to replace them with. 
+Within my Astro site, I am using the excellent [Astro Icon](https://www.astroicon.dev/) integration. This gives me an `<Icon />` component  to make use of local `.svg` files. It can also pull in new icons through [Iconify](https://icon-sets.iconify.design/), such as my icon family of choice [Phosphor](https://phosphoricons.com/). I only have a few icons sprinkled throughout my site, but it's nice to have this for when I want to bring new ones in. One day I hope to make my own small set to replace them with.
 
 ### Content Management System: DecapCMS
 
@@ -80,3 +80,9 @@ Eventually this will be a discussion about the resources I found most useful for
 CSS alone is an ocean of depth, not just in technical use but in *how* it gets used. I'm not a Tailwind boi, I think it takes all of the fun out of this, and makes my HTML obnoxious to read. I like writing CSS. I love writing CSS. I just want to do it effectively. And that's only 1 of the core pieces, we haven't even touched HTML itself, JavaScript, TypeScript, Astro-specific approaches, content schemas, or any of the other ocean-sized paths to plunge into. 
 
 This section will go over some of my trusted resources that inspire the approaches I use when working on this website and others.
+
+## Content Collections
+
+### Posts
+
+![Posts content collection schema](@assets/diagrams/schema/posts.svg)
