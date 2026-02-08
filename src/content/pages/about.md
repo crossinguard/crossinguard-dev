@@ -1,9 +1,9 @@
 ---
-title: "About"
-description: "Information about where I've been, what I'm doing, and where I'm heading."
+title: About
+description: Information about where I've been, what I'm doing, and where I'm heading.
+isFixed: true
 ---
-
-![Brett Egbert](../../assets/brett-egbert.webp)
+![a man with a beard and glasses wearing a plaid green shirt, outside against a red paneled building](../../assets/brett-egbert.webp)
 
 My name is **W. Brett Egbert** *(the "W" is silent)*. I have lived in North Carolina, Texas, Indiana, Kentucky, Mississippi, Ohio, Utah, and Washington, and hope to never move again.
 
@@ -17,7 +17,7 @@ I taught high school math in Utah for 8 years, spending the back half as the dep
 
 If you are curious for the longer version, check out my post "[Mathematics Educator](/posts/math-ed)"
 
----
+- - -
 
 ### Assessment Specialist
 
@@ -25,7 +25,7 @@ As an educator, I know the value of good lessons supported by quality instructio
 
 I am an "assessment specialist", meaning I create opportunities for students to show they can **do the things** they learned about. My approach is centered around assessment-first instructional design and competency-based education.
 
----
+- - -
 
 ### Web Developer
 

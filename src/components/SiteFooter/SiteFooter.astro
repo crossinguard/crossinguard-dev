@@ -1,5 +1,5 @@
 ---
-import site from "@data/site.json";
+import owner from "@data/owner.json";
 import { Icon } from "astro-icon/components";
 
 const currentYear = new Date().getFullYear();
@@ -8,11 +8,11 @@ const socialHref = (url: string) => (url.includes("@") ? `mailto:${url}` : url);
 ---
 
 <footer>
-    <p>{site.owner.name} &copy; {currentYear}</p>
-    <p><em>{site.owner.tagline}</em></p>
+    <p>{owner.name} &copy; {currentYear}</p>
+    <p><em>{owner.tagline}</em></p>
     <ul class="social cluster">
         {
-            site.owner.social.map((link) => (
+            owner.social.map((link) => (
                 <li>
                     <a
                         href={socialHref(link.url)}

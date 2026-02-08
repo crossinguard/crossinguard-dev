@@ -13,9 +13,7 @@ const pages = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    icon: z.string().optional(),
-    navOrder: z.number().optional(),
-    showInNav: z.boolean().default(true),
+    isFixed: z.boolean().default(false),
   }),
 });
 

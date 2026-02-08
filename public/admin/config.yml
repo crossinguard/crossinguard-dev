@@ -32,59 +32,57 @@ media_folder: "src/assets"
 public_folder: "@assets"
 
 collections:
-  # SITE SETTINGS
-  - label: "Site Settings"
+  # SITE-WIDE SETTINGS
+  - label: "Website Settings"
     name: "settings"
+    description: "Settings for the entire website"
     files:
-      - label: "Site Information"
+      - label: "SEO Metadata"
         name: "site"
         file: "src/data/site.json"
         editor:
           preview: false
         fields:
-          - label: "Website Metadata"
-            name: "metadata"
-            widget: "object"
-            hint: "Website metadata is primary used behind the scenes to help with search engine optimization (SEO)"
-            fields:
-              - {
-                  label: "Title",
-                  name: "title",
-                  widget: "string",
-                  hint: "Primary title of the website. Appears within the label on the browser tab",
-                }
-              - {
-                  label: "Description",
-                  name: "description",
-                  widget: "text",
-                  hint: "Primary description of the website. Appears in the footer and is used as a fallback description for all pages",
-                }
-              - {
-                  label: "URL",
-                  name: "url",
-                  widget: "string",
-                  hint: "Current full domain of the website. This should only be updated if the domain name changes",
-                }
-          - label: "Owner Information (Footer)"
-            name: "owner"
-            widget: "object"
-            hint: "Information about the website owner. Appears in the footer"
+          - {
+              label: "Title",
+              name: "title",
+              widget: "string",
+              hint: "Primary title of the website. Appears within the label on the browser tab as 'pageTitle | websiteTitle'",
+            }
+          - {
+              label: "Description",
+              name: "description",
+              widget: "text",
+              hint: "Primary description of the website. Used as a fallback page description if needed",
+            }
+          - {
+              label: "URL",
+              name: "url",
+              widget: "string",
+              hint: "Current full URL of the website. This should only be updated if the domain name changes",
+            }
+      - label: "Owner Information"
+        name: "owner"
+        file: "src/data/owner.json"
+        editor:
+          preview: false
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - label: "Social"
+            name: "social"
+            widget: "list"
             fields:
               - { label: "Name", name: "name", widget: "string" }
-              - { label: "Tagline", name: "tagline", widget: "string" }
-              - { label: "Email", name: "email", widget: "string" }
-              - label: "Social"
-                name: "social"
-                widget: "list"
-                fields:
-                  - { label: "Name", name: "name", widget: "string" }
-                  - { label: "URL", name: "url", widget: "string" }
-                  - {
-                      label: "Icon",
-                      name: "icon",
-                      widget: "string",
-                      hint: "Select any icon from phosphoricons.com. Enter as 'ph:icon-name'",
-                    }
+              - { label: "URL", name: "url", widget: "string" }
+              - {
+                  label: "Icon",
+                  name: "icon",
+                  widget: "string",
+                  hint: "Use 'ph:icon-name' for Phosphor icons (phosphoricons.com). Custom local icons require a developer to add the SVG file first.",
+                }
+
       - label: "Navigation"
         name: "nav"
         file: "src/data/nav.json"
@@ -100,24 +98,80 @@ collections:
               label: "Page"
               name: "page"
               widget: "relation"
-              collection: "pages"
+              collection: "all-pages"
               value_field: "{{slug}}"
               search_fields: ["title"]
               display_fields: ["title"]
 
+  # FIXED PAGES
+  - label: "Default Pages"
+    name: "fixed-pages"
+    description: "Default pages with custom layouts or components"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "src/content/pages/home.md"
+        editor:
+          preview: false
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Posts Page"
+        name: "page-posts"
+        file: "src/content/pages/posts.md"
+        editor:
+          preview: false
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
+      - label: "Projects Page"
+        name: "page-projects"
+        file: "src/content/pages/projects.md"
+        editor:
+          preview: false
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
+      - label: "About Page"
+        name: "page-about"
+        file: "src/content/pages/about.md"
+        editor:
+          preview: false
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
   # CONTENT COLLECTIONS
-  - label: "Pages"
+  - label: "Content Pages"
+    label_singular: "Content Page"
     name: "pages"
     folder: "src/content/pages"
+    description: "User-created pages with basic content"
     create: true
+    editor:
+      preview: false
+    filter: { field: "isFixed", value: false }
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
+      - {
+          label: "Fixed Page",
+          name: "isFixed",
+          widget: "hidden",
+          default: false,
+        }
       - { label: "Body", name: "body", widget: "markdown" }
   - label: "Posts"
+    label_singular: "Post"
     name: "posts"
     folder: "src/content/posts"
     create: true
+    editor:
+      preview: false
     media_folder: "../../assets/posts"
     public_folder: "@assets/posts"
     fields:
@@ -218,3 +272,12 @@ collections:
             ],
           hint: "The main content of your post",
         }
+  # HIDDEN (used for navigation relation)
+  - label: "All Pages"
+    name: "all-pages"
+    folder: "src/content/pages"
+    hide: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown", required: false }

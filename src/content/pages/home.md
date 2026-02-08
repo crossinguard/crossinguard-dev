@@ -1,6 +1,7 @@
 ---
 title: "Home"
 description: "The personal website for Brett Egbert and his nerdy little projects."
+isFixed: true
 ---
 
 Hey there! My name is **Brett Egbert** and this is my site.
