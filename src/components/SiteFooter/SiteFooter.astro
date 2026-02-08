@@ -1,35 +1,31 @@
 ---
+import site from "@data/site.json";
 import { Icon } from "astro-icon/components";
 
 const currentYear = new Date().getFullYear();
+
+const socialHref = (url: string) => (url.includes("@") ? `mailto:${url}` : url);
 ---
 
 <footer>
-    <p>W. Brett Egbert &copy; {currentYear}</p>
-    <p><em>stay curious</em></p>
+    <p>{site.owner.name} &copy; {currentYear}</p>
+    <p><em>{site.owner.tagline}</em></p>
     <ul class="social cluster">
-        <li>
-            <a
-                href="mailto:brett@crossinguard.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social__link"
-            >
-                <Icon class="social__icon" name="envelope" />
-                Email
-            </a>
-        </li>
-        <li>
-            <a
-                href="https://codeberg.org/crossinguard"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social__link"
-            >
-                <Icon class="social__icon" name="codeberg" />
-                Codeberg
-            </a>
-        </li>
+        {
+            site.owner.social.map((link) => (
+                <li>
+                    <a
+                        href={socialHref(link.url)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social__link"
+                    >
+                        <Icon class="social__icon" name={link.icon} />
+                        {link.name}
+                    </a>
+                </li>
+            ))
+        }
     </ul>
 </footer>
 

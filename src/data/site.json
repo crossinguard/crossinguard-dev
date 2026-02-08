@@ -1,22 +1,28 @@
 {
-  "website": {
+  "metadata": {
     "title": "crossinguard.dev",
-    "description": "The personal website for Brett Egbert and his nerdy little projects.",
-    "url": "https://crossinguard.dev/"
+    "description": "The personal website for Brett Egbert and his nerdy little projects. Plus whatever else I want.",
+    "url": "https://crossinguard.dev"
   },
-  "author": {
+  "owner": {
     "name": "W. Brett Egbert",
-    "handle": "crossinguard",
+    "tagline": "stay curious",
+    "email": "brett@crossinguard.dev",
     "social": [
       {
         "name": "Email",
-        "url": "mailto:brett@crossinguard.dev",
-        "icon": "at"
+        "url": "brett@crossinguard.dev",
+        "icon": "ph:at"
       },
       {
         "name": "Codeberg",
         "url": "https://codeberg.org/crossinguard",
         "icon": "codeberg"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/crossinguard",
+        "icon": "ph:github-logo"
       }
     ]
   }

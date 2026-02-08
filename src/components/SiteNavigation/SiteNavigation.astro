@@ -1,13 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
+import nav from "@data/nav.json";
 import SiteNavigationItem from "./SiteNavigationItem.astro";
 
-const { pathname } = Astro.url;
 const allPages = await getCollection("pages");
-const navPages = allPages
-    .filter((page) => page.data.showInNav !== false)
-    .sort((a, b) => (a.data.navOrder || 999) - (b.data.navOrder || 999));
+const navPages = nav.nav
+    .map((slug) => allPages.find((page) => page.id === slug))
+    .filter((page): page is NonNullable<typeof page> => Boolean(page));
 ---
 
 <div class="site-head wrapper repel">

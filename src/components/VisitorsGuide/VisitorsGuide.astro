@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import nav from "@data/nav.json";
+
+const allPages = await getCollection("pages");
+const navPages = nav.nav
+    .map((slug) => allPages.find((page) => page.id === slug))
+    .filter((page): page is NonNullable<typeof page> => Boolean(page));
+---
+
+<section class="visitor-guide flow">
+    <h2>Visitor's Guide</h2>
+    <p>
+        This site is my digital home—a place that I control with no ads, no
+        tracking, no algorithms, and no trend chasing. Like a pair of cargo
+        shorts, I offer a 100% <em>"I am not trendy"</em> guarantee.
+    </p>
+    {
+        navPages.map((page) => (
+            <div class="box flow">
+                <h3>
+                    <a href={`/${page.id}`}>{page.data.title}</a>
+                </h3>
+                <p>{page.data.description}</p>
+            </div>
+        ))
+    }
+</section>
+
+<style>
+    .box {
+        --box-padding: var(--space-s);
+        max-width: 45ch;
+        margin-inline: auto;
+        border: 2px solid var(--color-dark);
+    }
+
+    h3 {
+        font-size: var(--step-2);
+    }
+
+    a {
+        transition: color 0.2s ease-in;
+
+        &:hover {
+            color: var(--color-primary-shade);
+        }
+    }
+</style>

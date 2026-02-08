@@ -2,6 +2,7 @@
 title: I want to be in a band
 description: Tonguing the sax and performing with the United States Marine Band
 pubDate: 2024-05-16
+image: ""
 ---
 
 ## Purple + Gold

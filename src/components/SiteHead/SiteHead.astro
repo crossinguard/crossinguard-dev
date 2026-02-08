@@ -15,30 +15,30 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- TITLE & DESCRIPTION -->
-    <title>{title} | {site.website.title}</title>
+    <title>{title} | {site.metadata.title}</title>
     <meta
         name="description"
-        content={description || site.website.description}
+        content={description || site.metadata.description}
     />
 
     <!-- OPEN GRAPH / SOCIAL SHARING -->
-    <meta property="og:title" content={`${title} | ${site.website.title}`} />
+    <meta property="og:title" content={`${title} | ${site.metadata.title}`} />
     <meta
         property="og:description"
-        content={description || site.website.description}
+        content={description || site.metadata.description}
     />
     <meta
         property="og:url"
-        content={`${site.website.url}${Astro.url.pathname}`}
+        content={`${site.metadata.url}${Astro.url.pathname}`}
     />
     <meta property="og:type" content="website" />
 
     <!-- TWITTER CARD -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content={`${title} | ${site.website.title}`} />
+    <meta name="twitter:title" content={`${title} | ${site.metadata.title}`} />
     <meta
         name="twitter:description"
-        content={description || site.website.description}
+        content={description || site.metadata.description}
     />
 
     <!-- FAVICON -->
@@ -65,7 +65,7 @@ const { title, description } = Astro.props;
     />
 
     <!-- TECHNICAL META -->
-    <link rel="canonical" href={`${site.website.url}${Astro.url.pathname}`} />
+    <link rel="canonical" href={`${site.metadata.url}${Astro.url.pathname}`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 </head>
 
