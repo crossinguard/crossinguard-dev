@@ -22,165 +22,137 @@ const { title, description } = Astro.props;
     </body>
 </html>
 
-<!-- TODO: copied from another project, implement here (requires customizing) -->
-<!-- <style is:global>
+<style is:global>
     @layer reset, theme, fluid, global, utility;
 
     @layer reset {
-        /* https://piccalil.li/blog/a-more-modern-css-reset/ */
-        /* Box sizing rules */
+        /*
+          Josh's Custom CSS Reset
+          https://www.joshwcomeau.com/css/custom-css-reset/
+        */
+
         *,
         *::before,
         *::after {
             box-sizing: border-box;
         }
 
-        /* Prevent font size inflation */
-        html {
-            -moz-text-size-adjust: none;
-            -webkit-text-size-adjust: none;
-            text-size-adjust: none;
+        *:not(dialog) {
+            margin: 0;
         }
 
-        /* Remove default margin in favour of better control in authored CSS */
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        p,
-        figure,
-        blockquote,
-        dl,
-        dd {
-            margin-block-end: 0;
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                interpolate-size: allow-keywords;
+            }
         }
 
-        /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-        ul[role="list"],
-        ol[role="list"] {
-            list-style: none;
-        }
-
-        /* Set core body defaults */
         body {
-            min-height: 100vh;
             line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Set shorter line heights on headings and interactive elements */
-        h1,
-        h2,
-        h3,
-        h4,
-        button,
-        input,
-        label {
-            line-height: 1.1;
-        }
-
-        /* Balance text wrapping on headings */
-        h1,
-        h2,
-        h3,
-        h4 {
-            text-wrap: balance;
-        }
-
-        /* A elements that don't have a class get default styles */
-        a:not([class]) {
-            text-decoration-skip-ink: auto;
-            color: currentColor;
-        }
-
-        /* Make images easier to work with */
         img,
-        picture {
-            max-width: 100%;
+        picture,
+        video,
+        canvas,
+        svg {
             display: block;
-            height: auto;
+            max-width: 100%;
         }
 
-        /* Inherit fonts for inputs and buttons */
         input,
         button,
         textarea,
         select {
-            font-family: inherit;
-            font-size: inherit;
+            font: inherit;
         }
 
-        /* Make sure textareas without a rows attribute are not tiny */
-        textarea:not([rows]) {
-            min-height: 10em;
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            overflow-wrap: break-word;
         }
 
-        /* Anything that has been anchored to should have extra scroll margin */
-        :target {
-            scroll-margin-block: 5ex;
+        p {
+            text-wrap: pretty;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-wrap: balance;
+        }
+
+        #root,
+        #__next {
+            isolation: isolate;
         }
     }
 
     @layer theme {
         @font-face {
-            font-family: "Atkinson Hyperlegible Next";
-            src: url("/fonts/AtkinsonHyperlegibleNextVF-Variable.woff2")
-                format("woff2");
-            font-weight: 200 800;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: "Atkinson Hyperlegible Mono";
-            src: url("/fonts/AtkinsonHyperlegibleMonoVF-Variable.woff2")
-                format("woff2");
-            font-weight: 200 800;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: "Rikoma";
-            src: url("/fonts/Rikoma-Regular.woff2") format("woff2");
+            font-family: "Lazer84";
+            src: url("/fonts/lazer84.woff2") format("woff2");
             font-weight: normal;
             font-style: normal;
             font-display: swap;
         }
 
+        @font-face {
+            font-family: "League Spartan Variable";
+            src: url("/fonts/LeagueSpartanVariable.woff2")
+                format("woff2-variations");
+            font-weight: 200 900;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Pridi";
+            src: url("/fonts/Pridi-Medium.woff2") format("woff2");
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Pridi";
+            src: url("/fonts/Pridi-SemiBold.woff2") format("woff2");
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Pridi";
+            src: url("/fonts/Pridi-Bold.woff2") format("woff2");
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
-            /* THEME FONTS */
-            --font-family-base: "Atkinson Hyperlegible Next", sans-serif;
-            --font-family-mono: "Atkinson Hyperlegible Mono", monospace;
-            --font-family-fosl: "Rikoma", serif;
+            /* FONT FAMILIES */
+            --font-family-heading: "Pridi", serif;
+            --font-family-body: "League Spartan Variable", sans-serif;
+            --font-family-accent: "Lazer84", monospace;
+            --font-family-mono: monospace;
 
-            .font-base {
-                font-family: var(--font-family-base);
-                font-weight: 375;
-                font-style: normal;
-            }
-
-            .font-mono {
-                font-family: var(--font-family-mono);
-                font-weight: 375;
-                font-style: normal;
-            }
-
-            .font-fosl {
-                font-family: var(--font-family-fosl);
-                font-weight: normal;
-                font-style: normal;
-            }
-
-            /* THEME COLORS */
-            --color-light: #f8f9fa;
-            --color-dark: #212529;
-            --green-100: #eaeee6;
-            --green-200: #d1e2cf;
-            --green-300: #7fbe80;
-            --green-400: #5ba248;
-            --green-500: #4d5f35;
-            --green-600: #2f3124;
-            --green-700: #25241f;
+            /* COLOR THEME */
+            --color-light: #f9f3eb; /* var(--color-white-linen-50) */
+            --color-light-shade: #f5ecdf; /* var(--color-white-linen-100) */
+            --color-dark: #02001a; /* var(--color-ebony-950) */
+            --color-primary: #0ba4ae; /* var(--color-pelorous-600) */
+            --color-primary-shade: #10848e; /* var(--color-pelorous-700) */
+            --color-secondary: #67df82; /* var(--color-pastel-green-400) */
+            --color-tertiary: #e1f0c9; /* var(--color-beryl-green-100) */
+            --color-pop: #ff7139; /* var(--color-burning-orange-400) */
         }
     }
 
@@ -256,29 +228,51 @@ const { title, description } = Astro.props;
 
     @layer global {
         body {
-            background: var(--color-light);
+            background-color: var(--color-light);
             color: var(--color-dark);
-            font-family: var(--font-family-base);
+            font-family: var(--font-family-body);
             font-weight: 375;
             font-style: normal;
             font-size: var(--size-0);
-            margin: 0;
+        }
+
+        h1,
+        h2 {
+            font-family: var(--font-family-heading);
+            line-height: 1.2;
         }
 
         h1 {
-            font-size: var(--size-4);
+            color: var(--color-primary-shade);
+            font-size: var(--size-6);
         }
 
         h2 {
-            font-size: var(--size-3);
+            color: var(--color-primary);
+            font-size: var(--size-4);
+        }
+
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 500;
         }
 
         h3 {
-            font-size: var(--size-2);
+            font-size: var(--size-3);
         }
 
         h4 {
+            font-size: var(--size-2);
+        }
+
+        h5 {
             font-size: var(--size-1);
+        }
+
+        h6 {
+            font-size: var(--size-0);
         }
 
         p {
@@ -295,32 +289,26 @@ const { title, description } = Astro.props;
             &.large {
                 font-size: var(--size-2);
             }
+        }
 
-            > a {
-                color: var(--green-500);
+        a {
+            color: currentColor;
+            text-decoration-color: var(--color-primary);
+            text-decoration-thickness: 3px;
+            transition: color 0.2s ease-in-out;
 
-                &:hover {
-                    color: var(--green-400);
-                }
+            &:hover {
+                color: var(--color-primary-shade);
             }
         }
 
-        dt {
-            font-weight: 500;
-        }
-
-        dt::after {
-            content: ": ";
+        :focus:not(main) {
+            outline: 2px dotted currentColor;
+            outline-offset: var(--space-3xs);
         }
     }
 
     @layer utility {
-        .wrapper {
-            width: min(calc(100% - var(--space-m-l)), calc(1240 / 16 * 1rem));
-            margin-inline: auto;
-            padding-block: var(--space-m-l);
-        }
-
         .visually-hidden {
             position: absolute;
             left: -10000px;
@@ -329,5 +317,76 @@ const { title, description } = Astro.props;
             height: 1px;
             overflow: hidden;
         }
+
+        .wrapper {
+            width: min(calc(100% - var(--space-m-l)), calc(1240 / 16 * 1rem));
+            margin-inline: auto;
+            padding-block: var(--space-m-l);
+        }
+
+        .prose > * + * {
+            margin-block-start: var(--prose-spacing, 1em);
+        }
+
+        .nav-list {
+            display: flex;
+            gap: var(--space-m);
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+            list-style: "";
+        }
+
+        .stack {
+            display: grid;
+            gap: var(--stack-gap, 1rem);
+            align-content: var(--stack-alignment, start);
+            justify-items: var(--stack-justification, start);
+            > * {
+                margin-block: 0;
+            }
+        }
+
+        .pile {
+            display: grid;
+            place-content: center;
+            grid-template-areas: "pile";
+            > * {
+                grid-area: pile;
+            }
+        }
+
+        .group {
+            display: flex;
+            flex-wrap: var(--group-wrap, wrap);
+            align-items: var(--group-alignment, center);
+            justify-content: var(--group-justification, start);
+            gap: var(--group-gap, var(--group-row-gap, var(--space-s)))
+                var(--group-gap, var(--group-column-gap, var(--space-m)));
+        }
+
+        .apart {
+            display: flex;
+            align-items: var(--apart-alignment, center);
+            justify-content: var(--apart-justification, space-between);
+            flex-wrap: var(--apart-wrap, wrap);
+            gap: var(--apart-gap, var(--apart-row-gap, var(--space-s)))
+                var(--apart-gap, var(--apart-column-gap, var(--space-m)));
+        }
+
+        .auto-grid {
+            display: grid;
+            gap: var(--auto-grid-gap, var(--space-m));
+            grid-template-columns: repeat(
+                var(--auto-grid-repeat, auto-fit),
+                minmax(
+                    var(
+                        --auto-grid-min-width,
+                        min(var(--auto-grid-min-col-size, 320px), 100%)
+                    ),
+                    1fr
+                )
+            );
+        }
     }
-</style> -->
+</style>

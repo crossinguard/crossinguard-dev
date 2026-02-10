@@ -1,0 +1,16 @@
+---
+import SiteLayout from "@layouts/SiteLayout.astro";
+
+import { getEntry, render } from "astro:content";
+const page = await getEntry("pages", "sandbox");
+
+if (!page) {
+    throw new Error("Could not find home page");
+}
+const { Content } = await render(page);
+---
+
+<SiteLayout title={page.data.title} description={page.data.description}>
+    <h1>{page.data.title}</h1>
+    <Content />
+</SiteLayout>

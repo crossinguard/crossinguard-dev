@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta charset="utf-8" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <meta
+            name="apple-mobile-web-app-title"
+            content="Kevin Powell, CSS Evangelist"
+        />
+        <script
+            src="https://cdn.usefathom.com/script.js"
+            data-site="KBBSMHJE"
+            defer
+        ></script>
+        <link rel="manifest" href="/site.webmanifest" />
+        <link
+            as="font"
+            href="/fonts/Satoshi-Variable.ttf"
+            type="font/ttf"
+            rel="preload"
+            crossorigin
+        />
+        <link
+            as="font"
+            href="/fonts/CascadiaCode-Regular.woff2"
+            type="font/woff2"
+            rel="preload"
+            crossorigin
+        />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content="Astro v5.16.15" />
+        <title>CSS Evangelist</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Kevin Powell" />
+        <meta property="og:url" content="https://kevinpowell.co" />
+        <meta property="og:image" content="https://kevinpowell.co/kp-og.jpg" />
+        <meta
+            property="og:description"
+            content="Helping you fall in love with CSS."
+        />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content="Astro v5.16.15" />
+        <title>Kevin Powell | CSS Evangelist</title>
+        <script>
+            (function () {
+                const theme = localStorage.getItem("theme");
+                if (theme) {
+                    document.documentElement.setAttribute("data-theme", theme);
+                } else if (
+                    window.matchMedia("(prefers-color-scheme: dark)").matches
+                ) {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                } else {
+                    document.documentElement.setAttribute(
+                        "data-theme",
+                        "light",
+                    );
+                }
+            })();
+        </script>
+        <link rel="stylesheet" href="/_astro/about.DnAIYvsP.css" />
+        <style>
+            a[data-astro-cid-5eunqzkt] {
+                --animation-duration: 0.375s;
+                display: inline-block;
+                text-align: center;
+                position: relative;
+                transition: color var(--animation-duration) ease;
+                overflow: clip;
+                anchor-scope: --active-cell;
+                transition:
+                    color 0.2s,
+                    background-color 0.2s;
+                @supports (anchor-name: --anchor) {
+                    &[data-astro-cid-5eunqzkt]:hover {
+                        --button-bg-hover: var(--accent);
+                    }
+                }
+            }
+            [data-astro-cid-5eunqzkt] {
+                outline: none;
+            }
+            a[data-astro-cid-5eunqzkt]:hover {
+                color: var(--text-inverse);
+            }
+            a[data-astro-cid-5eunqzkt]:focus-visible {
+                background: var(--brand-gradient);
+                color: var(--text-inverse);
+            }
+            .btn-content[data-astro-cid-5eunqzkt] {
+                pointer-events: none;
+                position: relative;
+                z-index: 3;
+            }
+            .btn-cells[data-astro-cid-5eunqzkt] {
+                position: absolute;
+                z-index: 2;
+                inset: 0;
+                display: grid;
+                grid-template-columns: repeat(10, 1fr);
+                @supports (anchor-name: --anchor) {
+                    & span[data-astro-cid-5eunqzkt] {
+                        position: relative;
+                    }
+                    & span[data-astro-cid-5eunqzkt]:hover {
+                        anchor-name: --active-cell;
+                    }
+                    &[data-astro-cid-5eunqzkt]:not(:hover)
+                        span[data-astro-cid-5eunqzkt] {
+                        transition: anchor-name 0ms;
+                        transition-delay: var(--animation-duration);
+                        transition-behavior: allow-discrete;
+                    }
+                    &[data-astro-cid-5eunqzkt]:before {
+                        --size: 50px;
+                        content: "";
+                        position: absolute;
+                        position-anchor: --active-cell;
+                        left: anchor(left);
+                        bottom: anchor(top);
+                        width: var(--size);
+                        aspect-ratio: 1;
+                        background: var(--brand-gradient);
+                        transition:
+                            all var(--animation-duration) ease,
+                            inset 0.1s;
+                        transform: scale(0);
+                        opacity: 0.5;
+                        border-radius: 100px;
+                    }
+                    &[data-astro-cid-5eunqzkt]:hover:before {
+                        opacity: 1;
+                        transform: scale(10);
+                    }
+                    &[data-astro-cid-5eunqzkt]:has(
+                            > :nth-child(11):hover
+                        ):before {
+                        bottom: calc(anchor(center) - var(--size) / 2);
+                        left: calc(anchor(center) - var(--size));
+                    }
+                    &[data-astro-cid-5eunqzkt]:has(
+                            > :nth-child(20):hover
+                        ):before {
+                        bottom: calc(anchor(center) - var(--size) / 2);
+                        right: calc(anchor(center) - var(--size));
+                    }
+                    &[data-astro-cid-5eunqzkt]:has(
+                            > :nth-child(n + 21):hover
+                        ):before {
+                        bottom: calc(anchor(bottom) - var(--size));
+                    }
+                    &[data-astro-cid-5eunqzkt]:not(:hover):before {
+                        transition:
+                            opacity var(--animation-duration),
+                            inset 50ms,
+                            transform var(--animation-duration);
+                        transition-delay:
+                            var(--animation-duration),
+                            var(--animation-duration), 0s;
+                    }
+                }
+            }
+            h1[data-astro-cid-j7pv25f6] {
+                font-size: calc(var(--fs-5) * 1.5);
+            }
+            h2[data-astro-cid-j7pv25f6] {
+                font-size: var(--fs-0);
+                font-weight: 700;
+            }
+        </style>
+        <script
+            src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+            defer
+        ></script>
+    </head>
+    <body>
+        <header data-astro-cid-wu5dj4rx>
+            <a href="#main" class="skip-to-main" data-astro-cid-wu5dj4rx
+                >Skip to main content</a
+            >
+            <div class="primary-layout" data-astro-cid-wu5dj4rx>
+                <div class="page-header" data-astro-cid-wu5dj4rx>
+                    <p data-astro-cid-wu5dj4rx>
+                        <a class="logo" href="/" data-astro-cid-wu5dj4rx>kp</a>
+                    </p>
+                    <div class="group with-toggle" data-astro-cid-wu5dj4rx>
+                        <nav data-astro-cid-wu5dj4rx>
+                            <ul class="group" data-astro-cid-wu5dj4rx>
+                                <li data-astro-cid-wu5dj4rx>
+                                    <a href="/" data-astro-cid-wu5dj4rx>home</a>
+                                </li>
+                                <li data-astro-cid-wu5dj4rx>
+                                    <a href="/about" data-astro-cid-wu5dj4rx
+                                        >about</a
+                                    >
+                                </li>
+                                <li data-astro-cid-wu5dj4rx>
+                                    <a href="/youtube" data-astro-cid-wu5dj4rx
+                                        >youtube</a
+                                    >
+                                </li>
+                                <li data-astro-cid-wu5dj4rx>
+                                    <a href="/courses" data-astro-cid-wu5dj4rx
+                                        >courses</a
+                                    >
+                                </li>
+                                <li data-astro-cid-wu5dj4rx>
+                                    <a href="/podcast" data-astro-cid-wu5dj4rx
+                                        >podcast</a
+                                    >
+                                </li>
+                                <li data-astro-cid-wu5dj4rx>
+                                    <a href="/speaking" data-astro-cid-wu5dj4rx
+                                        >speaking</a
+                                    >
+                                </li>
+                                <li data-astro-cid-wu5dj4rx>
+                                    <a href="/articles" data-astro-cid-wu5dj4rx
+                                        >articles</a
+                                    >
+                                </li>
+                                <li data-astro-cid-wu5dj4rx>
+                                    <a
+                                        href="/newsletter"
+                                        data-astro-cid-wu5dj4rx
+                                        >newsletter</a
+                                    >
+                                </li>
+                            </ul>
+                        </nav>
+                        <button
+                            type="button"
+                            class="theme-toggle"
+                            id="theme-toggle"
+                            data-astro-cid-tjz2tfza
+                        >
+                            <svg
+                                class="sun-icon"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 256 256"
+                                data-astro-cid-tjz2tfza
+                            >
+                                <path
+                                    fill="currentColor"
+                                    d="M116 36V20a12 12 0 0 1 24 0v16a12 12 0 0 1-24 0m80 92a68 68 0 1 1-68-68a68.07 68.07 0 0 1 68 68m-24 0a44 44 0 1 0-44 44a44.05 44.05 0 0 0 44-44M51.51 68.49a12 12 0 1 0 17-17l-12-12a12 12 0 0 0-17 17Zm0 119l-12 12a12 12 0 0 0 17 17l12-12a12 12 0 1 0-17-17M196 72a12 12 0 0 0 8.49-3.51l12-12a12 12 0 0 0-17-17l-12 12A12 12 0 0 0 196 72m8.49 115.51a12 12 0 0 0-17 17l12 12a12 12 0 0 0 17-17ZM48 128a12 12 0 0 0-12-12H20a12 12 0 0 0 0 24h16a12 12 0 0 0 12-12m80 80a12 12 0 0 0-12 12v16a12 12 0 0 0 24 0v-16a12 12 0 0 0-12-12m108-92h-16a12 12 0 0 0 0 24h16a12 12 0 0 0 0-24"
+                                    data-astro-cid-tjz2tfza
+                                ></path>
+                            </svg>
+                            <svg
+                                class="moon-icon"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 256 256"
+                                data-astro-cid-tjz2tfza
+                            >
+                                <path
+                                    fill="currentColor"
+                                    d="M236.37 139.4a12 12 0 0 0-12-3A84.07 84.07 0 0 1 119.6 31.59a12 12 0 0 0-15-15a108.86 108.86 0 0 0-54.91 38.48A108 108 0 0 0 136 228a107.1 107.1 0 0 0 64.93-21.69a108.86 108.86 0 0 0 38.44-54.94a12 12 0 0 0-3-11.97m-49.88 47.74A84 84 0 0 1 68.86 69.51a84.9 84.9 0 0 1 23.41-21.22Q92 52.13 92 56a108.12 108.12 0 0 0 108 108q3.87 0 7.71-.27a84.8 84.8 0 0 1-21.22 23.41"
+                                    data-astro-cid-tjz2tfza
+                                ></path>
+                            </svg>
+                            <span
+                                class="visually-hidden"
+                                id="theme-text"
+                                data-astro-cid-tjz2tfza
+                                >Switch to dark theme</span
+                            >
+                        </button>
+                        <script type="module">
+                            function s() {
+                                const t =
+                                        document.getElementById("theme-toggle"),
+                                    m = document.getElementById("theme-text");
+                                if (!t || t.dataset.initialized === "true")
+                                    return;
+                                t.dataset.initialized = "true";
+                                function e() {
+                                    const n =
+                                        document.documentElement.getAttribute(
+                                            "data-theme",
+                                        );
+                                    m &&
+                                        (m.textContent =
+                                            n === "dark"
+                                                ? "Switch to light theme"
+                                                : "Switch to dark theme");
+                                }
+                                (e(),
+                                    t.addEventListener("click", (n) => {
+                                        const i =
+                                                document.documentElement.getAttribute(
+                                                    "data-theme",
+                                                ) === "dark"
+                                                    ? "light"
+                                                    : "dark",
+                                            o = t.getBoundingClientRect(),
+                                            a = o.left + o.width / 2,
+                                            d = o.top + o.height / 2,
+                                            u = Math.hypot(
+                                                Math.max(
+                                                    a,
+                                                    window.innerWidth - a,
+                                                ),
+                                                Math.max(
+                                                    d,
+                                                    window.innerHeight - d,
+                                                ),
+                                            );
+                                        if (!document.startViewTransition) {
+                                            (document.documentElement.setAttribute(
+                                                "data-theme",
+                                                i,
+                                            ),
+                                                localStorage.setItem(
+                                                    "theme",
+                                                    i,
+                                                ),
+                                                e());
+                                            return;
+                                        }
+                                        document.documentElement.classList.add(
+                                            "theme-transitioning",
+                                        );
+                                        const r = document.startViewTransition(
+                                            () => {
+                                                (document.documentElement.setAttribute(
+                                                    "data-theme",
+                                                    i,
+                                                ),
+                                                    localStorage.setItem(
+                                                        "theme",
+                                                        i,
+                                                    ),
+                                                    e());
+                                            },
+                                        );
+                                        (r.ready.then(() => {
+                                            document.documentElement.animate(
+                                                {
+                                                    clipPath: [
+                                                        `circle(0px at ${a}px ${d}px)`,
+                                                        `circle(${u}px at ${a}px ${d}px)`,
+                                                    ],
+                                                },
+                                                {
+                                                    duration: 500,
+                                                    easing: "ease-in-out",
+                                                    pseudoElement:
+                                                        "::view-transition-new(root)",
+                                                },
+                                            );
+                                        }),
+                                            r.finished.then(() => {
+                                                document.documentElement.classList.remove(
+                                                    "theme-transitioning",
+                                                );
+                                            }));
+                                    }),
+                                    window.matchMedia &&
+                                        window
+                                            .matchMedia(
+                                                "(prefers-color-scheme: dark)",
+                                            )
+                                            .addEventListener("change", (n) => {
+                                                if (
+                                                    !localStorage.getItem(
+                                                        "theme",
+                                                    )
+                                                ) {
+                                                    const c = n.matches
+                                                        ? "dark"
+                                                        : "light";
+                                                    (document.documentElement.setAttribute(
+                                                        "data-theme",
+                                                        c,
+                                                    ),
+                                                        e());
+                                                }
+                                            }));
+                            }
+                            document.addEventListener("DOMContentLoaded", s);
+                            document.addEventListener("astro:page-load", s);
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="primary-layout" id="main">
+            <main class="full-width" data-astro-cid-j7pv25f6>
+                <section class="hero prose" data-astro-cid-j7pv25f6>
+                    <h1 data-astro-cid-j7pv25f6>
+                        Hello my front&#8209;end friend!
+                    </h1>
+                    <div class="hero-image" data-astro-cid-j7pv25f6>
+                        <img
+                            src="/_astro/smile-2.zYWEeZPi_20K5dn.png"
+                            alt="Kevin Powell"
+                            data-astro-cid-j7pv25f6="true"
+                            loading="lazy"
+                            decoding="async"
+                            fetchpriority="auto"
+                            width="880"
+                            height="918"
+                        />
+                    </div>
+                    <p data-astro-cid-j7pv25f6>
+                        My name is Kevin, and I help people fall
+                        <span class="underline" data-astro-cid-j7pv25f6
+                            >in&nbsp;love</span
+                        >
+                        with CSS.
+                    </p>
+                    <p data-astro-cid-j7pv25f6>
+                        Whether you're struggling with layouts, fighting
+                        specificity battles, or just want to write cleaner code,
+                        I've got a lot of ways to help you.
+                    </p>
+                    <ul class="my-stuff auto-grid" data-astro-cid-j7pv25f6>
+                        <li class="card stack" data-astro-cid-j7pv25f6>
+                            <h2 data-astro-cid-j7pv25f6>YouTube</h2>
+                            <p data-astro-cid-j7pv25f6>
+                                I've got over 1000 videos, almost all dedicated
+                                to CSS. If there is something you want to learn,
+                                I've probably got a video for it.
+                            </p>
+                            <a
+                                href="/youtube"
+                                class="button"
+                                data-astro-cid-5eunqzkt
+                            >
+                                <div class="btn-cells" data-astro-cid-5eunqzkt>
+                                    <!--     ::before -->
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                </div>
+                                <span
+                                    class="btn-content"
+                                    data-astro-cid-5eunqzkt
+                                >
+                                    Watch some YT videos
+                                </span>
+                            </a>
+                        </li>
+                        <li class="card stack" data-astro-cid-j7pv25f6>
+                            <h2 data-astro-cid-j7pv25f6>Courses</h2>
+                            <p data-astro-cid-j7pv25f6>
+                                I have both free and premium courses, ranging
+                                from beginner to advanced levels.
+                            </p>
+                            <a
+                                href="/courses"
+                                class="button"
+                                data-astro-cid-5eunqzkt
+                            >
+                                <div class="btn-cells" data-astro-cid-5eunqzkt>
+                                    <!--     ::before -->
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                </div>
+                                <span
+                                    class="btn-content"
+                                    data-astro-cid-5eunqzkt
+                                >
+                                    Check them out
+                                </span>
+                            </a>
+                        </li>
+                        <li class="card stack" data-astro-cid-j7pv25f6>
+                            <h2 data-astro-cid-j7pv25f6>Speaking</h2>
+                            <p data-astro-cid-j7pv25f6>
+                                I generally like to stay hidden in my home
+                                office, but every now and then I'll venture out
+                                into the real world for a talk.
+                            </p>
+                            <a
+                                href="/speaking"
+                                class="button"
+                                data-astro-cid-5eunqzkt
+                            >
+                                <div class="btn-cells" data-astro-cid-5eunqzkt>
+                                    <!--     ::before -->
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                </div>
+                                <span
+                                    class="btn-content"
+                                    data-astro-cid-5eunqzkt
+                                >
+                                    Watch a talk
+                                </span>
+                            </a>
+                        </li>
+                        <li class="card stack" data-astro-cid-j7pv25f6>
+                            <h2 data-astro-cid-j7pv25f6>Newsletter</h2>
+                            <p data-astro-cid-j7pv25f6>
+                                The best place to keep up with everything I'm up
+                                to, I send out one email per week. It includes
+                                what I've been up to, and links to
+                                fun/cool/interesting stuff that I come across as
+                                well.
+                            </p>
+                            <a
+                                href="/newsletter"
+                                class="button"
+                                data-astro-cid-5eunqzkt
+                            >
+                                <div class="btn-cells" data-astro-cid-5eunqzkt>
+                                    <!--     ::before -->
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                </div>
+                                <span
+                                    class="btn-content"
+                                    data-astro-cid-5eunqzkt
+                                >
+                                    Check it out
+                                </span>
+                            </a>
+                        </li>
+                        <li class="card stack" data-astro-cid-j7pv25f6>
+                            <h2 data-astro-cid-j7pv25f6>Podcast</h2>
+                            <p data-astro-cid-j7pv25f6>
+                                My podcast, General Musings, is a place where I
+                                talk about whatever is front of mind for me in
+                                any given week, usually in some way that's
+                                related to front-end development. I also have
+                                guests on every now and then too.
+                            </p>
+                            <a
+                                href="/podcast"
+                                class="button"
+                                data-astro-cid-5eunqzkt
+                            >
+                                <div class="btn-cells" data-astro-cid-5eunqzkt>
+                                    <!--     ::before -->
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                </div>
+                                <span
+                                    class="btn-content"
+                                    data-astro-cid-5eunqzkt
+                                >
+                                    Give it a listen
+                                </span>
+                            </a>
+                        </li>
+                        <li class="card stack" data-astro-cid-j7pv25f6>
+                            <h2 data-astro-cid-j7pv25f6>Articles</h2>
+                            <p data-astro-cid-j7pv25f6>
+                                I used to write pretty frequently here, but now
+                                it's pretty quiet in general. Still, some good
+                                things in here though!
+                            </p>
+                            <a
+                                href="/articles"
+                                class="button"
+                                data-astro-cid-5eunqzkt
+                            >
+                                <div class="btn-cells" data-astro-cid-5eunqzkt>
+                                    <!--     ::before -->
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                    <span data-astro-cid-5eunqzkt></span>
+                                </div>
+                                <span
+                                    class="btn-content"
+                                    data-astro-cid-5eunqzkt
+                                >
+                                    Read an article
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+        <div class="primary-layout">
+            <footer class="full-width page-footer prose">
+                <div>
+                    <span class="logo">kevin powell</span>
+                    <p class="sign-off">
+                        Helping people fall in love with CSS.
+                    </p>
+                </div>
+            </footer>
+        </div>
+        <script>
+            if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", (user) => {
+                    if (!user) {
+                        window.netlifyIdentity.on("login", () => {
+                            document.location.href = "/admin/";
+                        });
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

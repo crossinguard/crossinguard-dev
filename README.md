@@ -1,24 +1,26 @@
 # crossinguard.dev
 
-Personal website built with Astro 5, featuring blog posts and project showcases.
+Personal website to showcase my thoughts, projects, and assorted doodads.
 
 ## Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command | Action |
-| :--- | :--- |
-| `bun run dev` | Start development server at `localhost:4321` |
-| `bun run cms` | Start development server with local CMS backend |
-| `bun run build` | Build production site to `./dist/` |
-| `bun run preview` | Preview build locally |
+| Command           | Action                                          |
+| :---------------- | :---------------------------------------------- |
+| `bun run dev`     | Start development server at `localhost:4321`    |
+| `bun run cms`     | Start development server with local CMS backend |
+| `bun run build`   | Build production site to `./dist/`              |
+| `bun run preview` | Preview build locally                           |
 
 
 ## Tools & Resources
 
 - web framework: [Astro](https://astro.build/)
   - [astro icons](https://www.astroicon.dev/)
-- online repository: [Codeberg](https://codeberg.org/)
+- content management system: [DecapCMS](https://decapcms.org/)
+  - [DecapBridge](https://decapbridge.com/)
+- cloud repository: [Codeberg](https://codeberg.org/), [GitHub](https://github.com/)
 - web hosting platform: [Netlify](https://www.netlify.com/)
 - fluid design: [Utopia](https://utopia.fyi/)
 
@@ -26,12 +28,12 @@ All commands are run from the root of the project, from a terminal:
 
 ### Pages
 
-| Field | Type | Constraint |
-| :--- | :--- | :--- |
-| title | string | required |
-| description | string | required |
-| isFixed | boolean | default: false |
-| body | markdown | |
+| Field       | Type     | Constraint     |
+| :---------- | :------- | :------------- |
+| title       | string   | required       |
+| description | string   | required       |
+| isFixed     | boolean  | default: false |
+| body        | markdown |                |
 
 Fixed pages (`isFixed: true`) are for the default pages using custom layouts or components:
 - home
@@ -43,27 +45,27 @@ Dynamic pages (`isFixed: false`) are rendered for additional content pages using
 
 ### Posts
 
-| Field | Type | Constraint |
-| :--- | :--- | :--- |
-| title | string | required |
-| description | string | required |
-| pubDate | date | required |
-| updatedDate | date | |
-| image | Image | |
-| imageAlt | string | |
-| tags | string[] | |
-| relatedPosts | reference[] | |
-| isDraft | boolean | default: false |
-| isFeatured | boolean | default: false |
-| body | markdown | required |
+| Field        | Type        | Constraint     |
+| :----------- | :---------- | :------------- |
+| title        | string      | required       |
+| description  | string      | required       |
+| pubDate      | date        | required       |
+| updatedDate  | date        |                |
+| image        | Image       |                |
+| imageAlt     | string      |                |
+| tags         | string[]    |                |
+| relatedPosts | reference[] |                |
+| isDraft      | boolean     | default: false |
+| isFeatured   | boolean     | default: false |
+| body         | markdown    | required       |
 
 ## Site Data
 
-| File | Purpose |
-| :--- | :--- |
-| `src/data/site.json` | SEO metadata (title, description, url) |
-| `src/data/owner.json` | Owner info, tagline, social links |
-| `src/data/nav.json` | Primary navigation order (references page slugs) |
+| File                  | Purpose            |
+| :-------------------- | :----------------- |
+| `src/data/site.json`  | SEO metadata       |
+| `src/data/owner.json` | Owner information  |
+| `src/data/nav.json`   | Primary navigation |
 
 ## CMS
 
