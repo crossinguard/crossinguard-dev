@@ -79,7 +79,7 @@ const linkAttrs = external
         <slot />
         {
             tags && tags.length > 0 && (
-                <ul class="card__tags cluster">
+                <ul class="card__tags group">
                     {tags.map((tag) => (
                         <li class="card__tag">#{tag}</li>
                     ))}
@@ -144,7 +144,7 @@ const linkAttrs = external
        DATE
        =================== */
     .card__date {
-        font-size: var(--step--1);
+        font-size: var(--size--1);
         margin: 0 0 var(--space-2xs) 0;
     }
 
@@ -152,7 +152,7 @@ const linkAttrs = external
        TITLE & LINK
        =================== */
     .card__title {
-        font-size: var(--step-2);
+        font-size: var(--size-2);
         margin: 0;
         color: inherit;
     }
@@ -201,7 +201,7 @@ const linkAttrs = external
 
     .card__tag {
         font-family: var(--font-family-mono);
-        font-size: var(--step--2);
+        font-size: var(--size--2);
     }
 
     /* ===================
@@ -221,11 +221,11 @@ const linkAttrs = external
     }
 
     .card--featured .card__title {
-        font-size: var(--step-3);
+        font-size: var(--size-3);
     }
 
     .card--featured .card__description {
-        font-size: var(--step-1);
+        font-size: var(--size-1);
     }
 
     /* ===================
@@ -236,11 +236,11 @@ const linkAttrs = external
     }
 
     .card--compact .card__title {
-        font-size: var(--step-1);
+        font-size: var(--size-1);
     }
 
     .card--compact .card__description {
-        font-size: var(--step--1);
+        font-size: var(--size--1);
     }
 
     .card--compact .card__media {

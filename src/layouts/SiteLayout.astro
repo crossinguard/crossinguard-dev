@@ -1,4 +1,5 @@
 ---
+// import "../styles/global.css";
 import SiteHead from "@components/SiteHead/SiteHead.astro";
 import SiteHeader from "@components/SiteHeader/SiteHeader.astro";
 import SiteFooter from "@components/SiteFooter/SiteFooter.astro";
@@ -15,7 +16,7 @@ const { title, description } = Astro.props;
     <SiteHead title={title} description={description} />
     <body>
         <SiteHeader />
-        <main id="main-content" tabindex="-1" class="wrapper flow">
+        <main id="main-content">
             <slot />
         </main>
         <SiteFooter />
@@ -23,7 +24,7 @@ const { title, description } = Astro.props;
 </html>
 
 <style is:global>
-    @layer reset, theme, fluid, global, utility;
+    @layer reset, theme, fluid, global, composition, utility;
 
     @layer reset {
         /*
@@ -153,6 +154,9 @@ const { title, description } = Astro.props;
             --color-secondary: #67df82; /* var(--color-pastel-green-400) */
             --color-tertiary: #e1f0c9; /* var(--color-beryl-green-100) */
             --color-pop: #ff7139; /* var(--color-burning-orange-400) */
+
+            /* DYNAMIC COLOR THEME */
+            --color-base: tomato;
         }
     }
 
@@ -234,6 +238,13 @@ const { title, description } = Astro.props;
             font-weight: 375;
             font-style: normal;
             font-size: var(--size-0);
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex-grow: 1;
         }
 
         h1,
@@ -308,33 +319,11 @@ const { title, description } = Astro.props;
         }
     }
 
-    @layer utility {
-        .visually-hidden {
-            position: absolute;
-            left: -10000px;
-            top: auto;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
-
+    @layer composition {
         .wrapper {
             width: min(calc(100% - var(--space-m-l)), calc(1240 / 16 * 1rem));
             margin-inline: auto;
             padding-block: var(--space-m-l);
-        }
-
-        .prose > * + * {
-            margin-block-start: var(--prose-spacing, 1em);
-        }
-
-        .nav-list {
-            display: flex;
-            gap: var(--space-m);
-            flex-wrap: wrap;
-            margin: 0;
-            padding: 0;
-            list-style: "";
         }
 
         .stack {
@@ -387,6 +376,21 @@ const { title, description } = Astro.props;
                     1fr
                 )
             );
+        }
+
+        .prose > * + * {
+            margin-block-start: var(--prose-spacing, 1em);
+        }
+    }
+
+    @layer utility {
+        .visually-hidden {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
         }
     }
 </style>

@@ -8,7 +8,7 @@ const navPages = nav.nav
     .filter((page): page is NonNullable<typeof page> => Boolean(page));
 ---
 
-<section class="visitor-guide flow">
+<section class="visitor-guide prose">
     <h2>Visitor's Guide</h2>
     <p>
         This site is my digital home—a place that I control with no ads, no
@@ -17,7 +17,7 @@ const navPages = nav.nav
     </p>
     {
         navPages.map((page) => (
-            <div class="box flow">
+            <div class="stack prose">
                 <h3>
                     <a href={`/${page.id}`}>{page.data.title}</a>
                 </h3>
@@ -28,15 +28,15 @@ const navPages = nav.nav
 </section>
 
 <style>
-    .box {
-        --box-padding: var(--space-s);
+    .stack {
+        padding: var(--space-s);
         max-width: 45ch;
         margin-inline: auto;
         border: 2px solid var(--color-dark);
     }
 
     h3 {
-        font-size: var(--step-2);
+        font-size: var(--size-2);
     }
 
     a {

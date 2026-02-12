@@ -3,7 +3,7 @@ import CardPost from "@components/Cards/CardPost.astro";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("posts", ({ data }) => {
-    return import.meta.env.PROD ? data.draft !== true : true;
+    return import.meta.env.PROD ? data.isDraft !== true : true;
 });
 
 const sortedPosts = allPosts.sort(
@@ -11,6 +11,6 @@ const sortedPosts = allPosts.sort(
 );
 ---
 
-<section class="grid">
+<section class="auto-grid">
     {sortedPosts.map((post) => <CardPost post={post} />)}
 </section>

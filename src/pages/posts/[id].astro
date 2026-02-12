@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteLayout from "@layouts/SiteLayout.astro";
 import { getCollection, render } from "astro:content";
 import { formatDate } from "../../utils/formatDate";
 
@@ -19,13 +19,13 @@ const updatedDate = post.data.updatedDate
     : null;
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
-    <article class="flow">
+<SiteLayout title={post.data.title} description={post.data.description}>
+    <div class="wrapper prose">
         <h1 class="title">{post.data.title}</h1>
         <p class="description">{post.data.description}</p>
         {
             post.data.tags && post.data.tags.length > 0 && (
-                <ul role="list" class="tags cluster">
+                <ul role="list" class="tags group">
                     {post.data.tags.map((tag) => (
                         <li class="tag">#{tag}</li>
                     ))}
@@ -39,10 +39,8 @@ const updatedDate = post.data.updatedDate
             {
                 post.data.updatedDate && (
                     <>
-                        {" "}
-                        •{" "}
                         <span>
-                            updated{" "}
+                            // updated
                             <time
                                 datetime={post.data.updatedDate.toISOString()}
                             >
@@ -54,23 +52,24 @@ const updatedDate = post.data.updatedDate
             }
         </p>
         <hr />
-        <div class="content flow">
+        <div class="content prose">
             <Content />
         </div>
-    </article>
-</BaseLayout>
+    </div>
+</SiteLayout>
 
 <style>
     .date {
-        font-size: var(--step-0);
+        font-size: var(--size-0);
         opacity: 0.8;
     }
 
     .tags {
-        font-size: var(--step--1);
+        font-size: var(--size--1);
         opacity: 0.8;
         padding: 0;
         font-family: var(--font-family-mono);
+        list-style: none;
     }
 
     hr {

@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import SiteLayout from "./SiteLayout.astro";
 import BreadcrumbNav from "@components/BreadcrumbNav/BreadcrumbNav.astro";
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
@@ -37,8 +37,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<BaseLayout title={project.data.title} description={project.data.description}>
-    <article class="flow">
+<SiteLayout title={project.data.title} description={project.data.description}>
+    <div class="wrapper prose">
         <h1 class="title">{project.data.title}</h1>
         <BreadcrumbNav />
         <p class="description">{project.data.description}</p>
@@ -48,14 +48,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
         {
             project.data.tags && project.data.tags.length > 0 && (
-                <ul role="list" class="tags cluster">
+                <ul role="list" class="tags group">
                     {project.data.tags.map((tag) => (
                         <li class="tag">#{tag}</li>
                     ))}
                 </ul>
             )
         }
-        <div class="date-status repel">
+        <div class="date-status apart">
             <p class="date">
                 posted <time datetime={project.data.pubDate.toISOString()}
                     >{pubDate}</time
@@ -109,14 +109,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         {/* Slot for collection-specific content after image */}
         <slot name="after-image" />
 
-        <div class="content flow">
+        <div class="content prose">
             <Content />
         </div>
 
         {/* Slot for collection-specific content at the end */}
         <slot name="footer" />
-    </article>
-</BaseLayout>
+    </div>
+</SiteLayout>
 
 <style>
     .project-image {
@@ -133,12 +133,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
     .date,
     .status {
-        font-size: var(--step-0);
+        font-size: var(--size-0);
         opacity: 0.8;
     }
 
     .tags {
-        font-size: var(--step--1);
+        list-style: none;
+        font-size: var(--size--1);
         opacity: 0.8;
         padding: 0;
         font-family: var(--font-family-mono);

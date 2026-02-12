@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import SiteLayout from "./SiteLayout.astro";
 import BreadcrumbNav from "@components/BreadcrumbNav/BreadcrumbNav.astro";
 import GridProjects from "../components/projects/GridProjects.astro";
 import {
@@ -15,11 +15,12 @@ const { collectionKey } = Astro.props;
 const config = projectCollections[collectionKey];
 ---
 
-<BaseLayout title={`${config.name} Projects`} description={config.description}>
-    <section class="section flow">
+<SiteLayout title={`${config.name} Projects`} description={config.description}>
+    <div class="wrapper prose">
         <h1>{config.name}</h1>
         <BreadcrumbNav />
         <p>{config.description}</p>
+        <p>hello there</p>
         <GridProjects collection={collectionKey} />
-    </section>
-</BaseLayout>
+    </div>
+</SiteLayout>

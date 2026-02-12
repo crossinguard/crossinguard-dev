@@ -1,12 +1,14 @@
 ---
 import "../styles/resume-print.css";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import SiteLayout from "@layouts/SiteLayout.astro";
 import CurrentResume from "@components/Resume/Resume.astro";
 
 const title = "Resume";
 const description = "Current professional resume for W. Brett Egbert.";
 ---
 
-<BaseLayout title={title} description={description}>
-    <CurrentResume />
-</BaseLayout>
+<SiteLayout title={title} description={description}>
+    <div class="wrapper">
+        <CurrentResume />
+    </div>
+</SiteLayout>

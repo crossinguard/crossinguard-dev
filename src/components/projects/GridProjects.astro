@@ -23,7 +23,7 @@ const displayedProjects = limit
     : sortedProjects;
 ---
 
-<section class="grid">
+<section class="auto-grid">
     {
         displayedProjects.map((project) => (
             <CardProject project={project} collectionKey={collection} />

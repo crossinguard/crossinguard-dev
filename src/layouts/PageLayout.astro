@@ -1,13 +1,13 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
-import BreadcrumbNav from "@components/BreadcrumbNav/BreadcrumbNav.astro";
+import SiteLayout from "./SiteLayout.astro";
 import { getEntry, render } from "astro:content";
 
 interface Props {
     pageID: string;
+    showHeader?: boolean;
 }
 
-const { pageID } = Astro.props;
+const { pageID, showHeader = true } = Astro.props;
 
 const page = await getEntry("pages", pageID);
 
@@ -17,25 +17,29 @@ if (!page) {
 const { Content } = await render(page);
 ---
 
-<BaseLayout title={page.data.title} description={page.data.description}>
-    <h1>
-        {page.data.title}
-    </h1>
-    <BreadcrumbNav />
-    <p>{page.data.description}</p>
-    <hr />
+<SiteLayout title={page.data.title} description={page.data.description}>
+    <div class="wrapper prose">
+        {
+            showHeader && (
+                <header class="page-header">
+                    <h1>{page.data.title}</h1>
+                    <p>{page.data.description}</p>
+                </header>
+            )
+        }
 
-    <!-- PAGE CONTENT FROM MARKDOWN -->
-    <Content />
+        <slot name="before-content" />
 
-    <!-- OPTIONAL ADDITIONAL CONTENT -->
-    <slot />
-</BaseLayout>
+        <Content />
+
+        <slot />
+    </div>
+</SiteLayout>
 
 <style>
-    [data-icon] {
-        color: var(--color-secondary);
-        font-size: var(--step-5);
-        vertical-align: -0.1em;
+    .page-header {
+        text-align: center;
+        padding-block-end: var(--space-s);
+        border-block-end: solid 1px var(--color-dark);
     }
 </style>

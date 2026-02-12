@@ -1,18 +1,17 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import PageLayout from "@layouts/PageLayout.astro";
 import VisitorsGuide from "@components/VisitorsGuide/VisitorsGuide.astro";
-
-import { getEntry, render } from "astro:content";
-const page = await getEntry("pages", "home");
-
-if (!page) {
-    throw new Error("Could not find home page");
-}
-const { Content } = await render(page);
 ---
 
-<BaseLayout title={page.data.title} description={page.data.description}>
-    <h1>Welcome {page.data.title}</h1>
-    <Content />
+<PageLayout pageID="home" showHeader={false}>
+    <Fragment slot="before-content">
+        <h1 class="title">Welcome Home</h1>
+    </Fragment>
     <VisitorsGuide />
-</BaseLayout>
+</PageLayout>
+
+<style>
+    .title {
+        text-align: center;
+    }
+</style>
