@@ -3,6 +3,7 @@ title: How I made this website
 description: An overview of the tools, resources, and methodologies I used to
   create my own custom website.
 pubDate: 2026-02-07
+updatedDate: 2026-02-13
 tags:
   - web-dev
   - astro
@@ -39,17 +40,18 @@ I legitimately love writing HTML and CSS. Thinking through the structure of info
 
 Astro is basically a superset of HTML. In fact, you can take an `index.html` file, rename it to `index.astro`, and everything should work the same as before. Astro isn't it's own language, it is standard HTML, standard CSS, and JSX-like JavaScript all wrapped up in a single file. 
 
-Within my Astro site, I am using the excellent [Astro Icon](https://www.astroicon.dev/) integration. This gives me an `<Icon />` component  to make use of local `.svg` files. It can also pull in new icons through [Iconify](https://icon-sets.iconify.design/), such as my icon family of choice [Phosphor](https://phosphoricons.com/). I only have a few icons sprinkled throughout my site, but it's nice to have this for when I want to bring new ones in. One day I hope to make my own small set to replace them with.
+Within my Astro site, I am using the excellent [Astro Icon](https://www.astroicon.dev/) integration. This gives me an `<Icon />` component  to make use of local `.svg` files. It can also pull in new icons through [Iconify](https://icon-sets.iconify.design/), such as my icon family of choice [Phosphor](https://phosphoricons.com/). I only have a few icons sprinkled throughout my site, but it's nice to have this for when I want to bring new ones in. One day I hope to make my own custom icon set to replace them with.
 
 ### Content Management System: DecapCMS
 
-This is my own personal site with nobody else coming in here to make edits. Because of that I really don't need a content management system. I am currently writing this post on my laptop in a simple markdown editor. However, my hope is to make websites for small local businesses in the future, so I need to make sure I can make content editable by non-technical people. Enter the content management system (CMS).
+This is my own personal site with nobody else coming in here to make edits. Because of that I really don't need a content management system. I am currently writing this post on my laptop in a simple markdown editor. However, my hope is to make websites for small local businesses and community groups in the future, so I need to make sure I can make content editable by non-technical people. Enter the content management system (CMS).
 
 I specifically chose [DecapCMS](https://decapcms.org/) for a few reasons:
 
 1. Everything stays git-based and lives directly with my files in my repo. The code, content, images, and CMS all live together with no vendor lock-in. I could put my website in a zip archive and email the entirety of it to myself. Try doing that with WordPress.
-2. I can use images in my `src` folder within the DecapCMS editor, meaning user-uploaded images benefit from Astro image rendering optimizations. I tried alternative git-based CMS options, like TinaCMS, but those needed to use the `public` folder. Astro intentionally does not run image optimization on the `public` folder as those are meant to be served as-is, and I didn't want to give that up.
+2. I can use images in my `src` folder within the DecapCMS editor, meaning user-uploaded images benefit from Astro image rendering optimizations. I tried alternative git-based CMS options, like TinaCMS, but those needed to use the `public` folder. Astro intentionally does not run image optimization on the `public` folder as those are meant to be served as-is, and I didn't want to give up image optimization.
 3. Access to the editorial workflow, where changed files travel through a process: drafts, in review, ready. This makes it much easier to work on content across multiple files and review changes before they go live. Plenty of other CMS platforms have this, but few let me do it for free.
+4. One-off file-based collections. This one is huge. A content collection represents a group of content with similar metadata. Think blog posts, where each will have a title, description, publication date, and maybe a hero image, all stored together in a "blog" folder. Content collections must redundantly be set up in the Astro configuration as well as the Decap configuration. File collections allow me to have user-editable files for specific single elements, like the navbar or footer information, without setting them up on the Astro side as individual content collections.
 
 Authentication for my CMS is handled through [DecapBridge](https://decapbridge.com/). I only recently started using this when I learned that Netlify Identity is now officially deprecated. So far this seems like exactly what I needed and was relatively simple to get set up.
 
@@ -61,7 +63,7 @@ This website repo was originally hosted on GitHub. I don't like the direction Mi
 
 However, there are a few tools I am using or trying out that require GitHub, like DecapBridge (for now). Because of that, I mirror my Codeberg and GitHub repos. Codeberg is my primary, and GitHub is the ex I wish I could quit that keeps slipping into my AOL Instant Messenger chats.
 
-If interested in migrating from GitHub to Codeberg, or using both with mirrored repos, this is the guide I followed: [A central place of information about mirroring repos to Codeberg #GiveUpGitHub](https://codeberg.org/Recommendations/Mirror_to_Codeberg)
+If interested in migrating from GitHub to Codeberg, or using both with mirrored repos, this is the guide I followed: [A central place of information about mirroring repos to Codeberg #GiveUpGitHub](https://codeberg.org/Recommendations/Mirror_to_Codeberg). Eventually I want to have my own Forego
 
 ### Hosting: Netlify
 

@@ -10,7 +10,7 @@ const navPages = nav.nav
     .filter((page): page is NonNullable<typeof page> => Boolean(page));
 ---
 
-<div class="site-head wrapper apart">
+<div class="page-header wrapper group">
     <a href="/" aria-label="crossinguard.dev home" class="brand-link group">
         <Icon class="brand-logo" name="crystal" />
         <span class="brand-text">crossinguard.dev</span>
@@ -31,10 +31,15 @@ const navPages = nav.nav
     </nav>
 </div>
 <style>
+    .page-header {
+        --group-justification: center;
+    }
+
     .brand-link {
         --group-gap: var(--space-2xs);
         font-family: var(--font-family-accent);
         text-decoration: none;
+
         .brand-text {
             font-size: var(--size-1);
             text-shadow: 1px 1px 2px var(--color-dark);
@@ -66,7 +71,6 @@ const navPages = nav.nav
     }
 
     .nav-list {
-        margin: 0;
         padding: 0;
         list-style: none;
     }

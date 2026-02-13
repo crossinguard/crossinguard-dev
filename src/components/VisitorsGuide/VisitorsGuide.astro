@@ -9,12 +9,19 @@ const navPages = nav.nav
 ---
 
 <section class="visitor-guide prose">
-    <h2>Visitor's Guide</h2>
-    <p>
-        This site is my digital home—a place that I control with no ads, no
-        tracking, no algorithms, and no trend chasing. Like a pair of cargo
-        shorts, I offer a 100% <em>"I am not trendy"</em> guarantee.
-    </p>
+    <header class="header">
+        <h2 class="title">Visitor's Guide</h2>
+        <p>This site is my digital home.</p>
+        <p>
+            A place that I control with no ads, no tracking, no algorithms, and
+            no trend chasing.
+        </p>
+        <p>
+            Like a pair of cargo shorts, I offer a 100% <em
+                >"I am not trendy"</em
+            > guarantee.
+        </p>
+    </header>
     {
         navPages.map((page) => (
             <div class="stack prose">
@@ -28,11 +35,23 @@ const navPages = nav.nav
 </section>
 
 <style>
+    .visitor-guide {
+        padding-block: var(--space-xl);
+    }
+
+    .header {
+        text-align: center;
+    }
+
     .stack {
         padding: var(--space-s);
         max-width: 45ch;
         margin-inline: auto;
         border: 2px solid var(--color-dark);
+
+        p {
+            margin: 0;
+        }
     }
 
     h3 {

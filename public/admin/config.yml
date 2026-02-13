@@ -165,11 +165,15 @@ collections:
           default: false,
         }
       - { label: "Body", name: "body", widget: "markdown" }
+
   - label: "Posts"
     label_singular: "Post"
     name: "posts"
+    description: "Entries in the 'Posts' content collection"
     folder: "src/content/posts"
     create: true
+    summary: "{{pubDate}} | {{title}}"
+    sortable_fields: ["pubDate", "title"]
     editor:
       preview: false
     media_folder: "../../assets/posts"
