@@ -11,7 +11,7 @@ tags:
   - decapCMS
 relatedPosts:
   - microsoft
-isDraft: true
+isDraft: false
 isFeatured: true
 ---
 
