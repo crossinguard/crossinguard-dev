@@ -304,13 +304,13 @@ const { title, description } = Astro.props;
         }
 
         a {
-            color: currentColor;
+            color: var(--color-dark);
             text-decoration-color: var(--color-primary);
             text-decoration-thickness: 3px;
             transition: color 0.2s ease-in-out;
 
             &:visited {
-                color: currentColor;
+                color: var(--color-dark);
             }
 
             &:hover {

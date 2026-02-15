@@ -10,10 +10,14 @@ const normalize = (path: string) => path.replace(/\/$/, "") || "/";
 const isCurrentPage = normalize(Astro.url.pathname) === normalize(link);
 ---
 
-<a href={link} aria-current={isCurrentPage ? "page" : undefined}>{label}</a>
+<a
+    class="nav-link"
+    href={link}
+    aria-current={isCurrentPage ? "page" : undefined}>{label}</a
+>
 
 <style>
-    a {
+    .nav-link {
         color: var(--color-light);
         font-size: var(--size-1);
         font-weight: 600;
@@ -44,7 +48,7 @@ const isCurrentPage = normalize(Astro.url.pathname) === normalize(link);
         }
     }
 
-    a[aria-current="page"]::after {
+    .nav-link[aria-current="page"]::after {
         background: var(--color-pop);
     }
 </style>
