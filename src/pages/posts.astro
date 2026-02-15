@@ -1,8 +1,33 @@
 ---
-import PageLayout from "../layouts/PageLayout.astro";
-import GridPosts from "../components/posts/GridPosts.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import CardPost from "@components/Cards/CardPost.astro";
+import { getCollection } from "astro:content";
+
+const pageSize = 6;
+
+const allPosts = await getCollection("posts", ({ data }) => {
+    return import.meta.env.PROD ? data.isDraft !== true : true;
+});
+
+const sortedPosts = allPosts.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const firstPagePosts = sortedPosts.slice(0, pageSize);
+const lastPage = Math.ceil(sortedPosts.length / pageSize);
 ---
 
 <PageLayout pageID="posts">
-    <GridPosts />
+    <section class="auto-grid">
+        {firstPagePosts.map((post) => <CardPost post={post} />)}
+    </section>
+
+    {
+        lastPage > 1 && (
+            <nav aria-label="Pagination">
+                <span>Page 1 of {lastPage}</span>
+                <a href="/posts/page/2">Next</a>
+            </nav>
+        )
+    }
 </PageLayout>
