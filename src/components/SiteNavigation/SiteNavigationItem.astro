@@ -39,6 +39,10 @@ const isCurrentPage = normalize(Astro.url.pathname) === normalize(link);
             transition: background 0.15s ease-in-out;
         }
 
+        &:visited {
+            color: var(--color-light);
+        }
+
         &:hover {
             color: var(--color-secondary);
 
