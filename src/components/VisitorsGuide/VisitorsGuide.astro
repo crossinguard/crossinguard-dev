@@ -8,30 +8,29 @@ const navPages = nav.nav
     .filter((page): page is NonNullable<typeof page> => Boolean(page));
 ---
 
-<section class="visitor-guide prose">
-    <header class="header">
+<section class="visitor-guide">
+    <header class="header prose">
         <h2 class="title">Visitor's Guide</h2>
-        <p>This site is my digital home.</p>
         <p>
-            A place that I control with no ads, no tracking, no algorithms, and
-            no trend chasing.
-        </p>
-        <p>
-            Like a pair of cargo shorts, I offer a 100% <em
-                >"I am not trendy"</em
-            > guarantee.
+            This site is my digital home. A place that I control with no ads, no
+            tracking, no algorithms, and no trend chasing. Like a pair of cargo
+            shorts, I offer a 100% <em>"I am not trendy"</em> guarantee.
         </p>
     </header>
-    {
-        navPages.map((page) => (
-            <div class="stack prose">
-                <h3>
-                    <a href={`/${page.id}`}>{page.data.title}</a>
-                </h3>
-                <p>{page.data.description}</p>
-            </div>
-        ))
-    }
+    <div class="destinations auto-grid">
+        {
+            navPages.map((page) => (
+                <article class="destination">
+                    <h3 class="destination-title">
+                        <a class="destination-link" href={`/${page.id}`}>
+                            {page.data.title}
+                        </a>
+                    </h3>
+                    <p>{page.data.description}</p>
+                </article>
+            ))
+        }
+    </div>
 </section>
 
 <style>
@@ -39,30 +38,28 @@ const navPages = nav.nav
         padding-block: var(--space-xl);
     }
 
-    .header {
+    .title {
         text-align: center;
     }
 
-    .stack {
-        padding: var(--space-s);
-        max-width: 45ch;
-        margin-inline: auto;
-        border: 2px solid var(--color-dark);
-
-        p {
-            margin: 0;
-        }
+    .destinations {
+        padding-block: var(--space-s);
     }
 
-    h3 {
+    .destination {
+        padding: var(--space-xs);
+        border: 2px solid var(--color-dark);
+    }
+
+    .destination-title {
         font-size: var(--size-2);
     }
 
-    a {
-        transition: color 0.2s ease-in;
+    .destination-link {
+        /*transition: color 0.2s ease-in;*/
 
         &:hover {
-            color: var(--color-primary-shade);
+            /*color: var(--color-primary-shade);*/
         }
     }
 </style>
