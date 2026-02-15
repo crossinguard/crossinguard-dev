@@ -79,7 +79,7 @@ const projectsCreativeClub = defineCollection({
 const projectsData = defineCollection({
   loader: glob({
     pattern: "**/*.{md,mdx}",
-    base: "./src/content/projects/math-ed",
+    base: "./src/content/projects/data",
   }),
   schema: baseProjectSchema.extend({
     relatedProjects: z.array(reference("projectsData")).optional(),
