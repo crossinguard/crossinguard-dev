@@ -251,6 +251,7 @@ const { title, description } = Astro.props;
         h2 {
             font-family: var(--font-family-heading);
             line-height: 1.2;
+            font-weight: 700;
         }
 
         h1 {
@@ -307,6 +308,10 @@ const { title, description } = Astro.props;
             text-decoration-color: var(--color-primary);
             text-decoration-thickness: 3px;
             transition: color 0.2s ease-in-out;
+
+            &:visited {
+                color: currentColor;
+            }
 
             &:hover {
                 color: var(--color-primary-shade);
