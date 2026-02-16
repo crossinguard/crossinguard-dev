@@ -1,6 +1,6 @@
 ---
 import SiteLayout from "./SiteLayout.astro";
-import BreadcrumbNav from "@components/BreadcrumbNav/BreadcrumbNav.astro";
+// import BreadcrumbNav from "@components/BreadcrumbNav/BreadcrumbNav.astro";
 import GridProjects from "../components/projects/GridProjects.astro";
 import {
     projectCollections,
@@ -18,7 +18,7 @@ const config = projectCollections[collectionKey];
 <SiteLayout title={`${config.name} Projects`} description={config.description}>
     <div class="wrapper prose">
         <h1>{config.name}</h1>
-        <BreadcrumbNav />
+        <!-- <BreadcrumbNav /> -->
         <p>{config.description}</p>
         <p>hello there</p>
         <GridProjects collection={collectionKey} />
