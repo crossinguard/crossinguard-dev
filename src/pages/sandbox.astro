@@ -1,0 +1,27 @@
+---
+import SiteLayout from "@layouts/SiteLayout.astro";
+import ColorTheme from "@components/ColorTheme/ColorTheme.astro";
+
+const title = "Sandbox";
+const description = "Internal testing page";
+---
+
+<SiteLayout title={title} description={description}>
+    <div class="wrapper prose">
+        <header class="page-header">
+            <h1>{title}</h1>
+            <p>{description}</p>
+        </header>
+        <ColorTheme scheme="triadic" />
+        <ColorTheme scheme="analogous" />
+        <ColorTheme scheme="split-complementary" />
+    </div>
+</SiteLayout>
+
+<style>
+    .page-header {
+        text-align: center;
+        padding-block-end: var(--space-s);
+        border-block-end: solid 1px var(--color-dark);
+    }
+</style>

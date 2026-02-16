@@ -1,7 +1,6 @@
 ---
 import PageLayout from "@layouts/PageLayout.astro";
 import VisitorsGuide from "@components/VisitorsGuide/VisitorsGuide.astro";
-import ColorTheme from "@components/ColorTheme/ColorTheme.astro";
 ---
 
 <PageLayout pageID="home" showHeader={false}>
@@ -9,9 +8,6 @@ import ColorTheme from "@components/ColorTheme/ColorTheme.astro";
         <h1 class="title">Welcome Home</h1>
     </Fragment>
     <VisitorsGuide />
-    <ColorTheme scheme="triadic" />
-    <ColorTheme scheme="analogous" />
-    <ColorTheme scheme="split-complementary" />
 </PageLayout>
 
 <style>
