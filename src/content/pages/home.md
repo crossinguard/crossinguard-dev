@@ -1,6 +1,6 @@
 ---
-title: "Home"
-description: "The personal website for Brett Egbert and his nerdy little projects."
+title: Home
+description: The personal website for Brett Egbert and his nerdy little projects.
 isFixed: true
 ---
 

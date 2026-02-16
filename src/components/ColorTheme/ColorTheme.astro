@@ -1,0 +1,48 @@
+---
+import ColorScale from "./ColorScale.astro";
+
+interface Props {
+    primary?: string;
+    scheme?: "triadic" | "analogous" | "split-complementary";
+}
+
+const { primary = "hsl(221 83% 50%)", scheme = "triadic" } = Astro.props;
+
+const schemes = {
+    triadic: [120, -120],
+    analogous: [30, -30],
+    "split-complementary": [150, -150],
+};
+
+const rotations = schemes[scheme];
+---
+
+<div class="theme-preview" style={`--theme-primary: ${primary};`}>
+    <p class="scheme-label">{scheme} scheme</p>
+
+    <ColorScale name="primary" base="var(--theme-primary)" />
+    <ColorScale
+        name="secondary"
+        base={`hsl(from var(--theme-primary) calc(h + ${rotations[0]}) s l)`}
+    />
+    <ColorScale
+        name="tertiary"
+        base={`hsl(from var(--theme-primary) calc(h + ${rotations[1]}) s l)`}
+    />
+    <ColorScale name="gray" base="hsl(from var(--theme-primary) h 10% l)" />
+</div>
+
+<style>
+    .theme-preview {
+        display: grid;
+        gap: var(--space-l);
+        border: solid thin var(--color-dark);
+        padding: var(--space-xs);
+    }
+
+    .scheme-label {
+        font-size: var(--size-2);
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+</style>

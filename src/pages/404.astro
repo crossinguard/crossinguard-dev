@@ -1,28 +1,5 @@
 ---
-import SiteLayout from "@layouts/SiteLayout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 ---
 
-<SiteLayout
-    title="Page Not Found"
-    description="The page you're looking for doesn't exist."
->
-    <div class="error wrapper prose">
-        <h1>404</h1>
-        <p>
-            The page you're looking for doesn't exist or has moved. Sorry about
-            that!
-        </p>
-        <p>
-            Ideally, this should not be happening. I would love if you sent me
-            an email letting me what isn't working so I can fix it. You can
-            reach me at <a href="mailto:brett@crossinguard.dev"
-                >brett@crossinguard.dev</a>
-        </p>
-    </div>
-</SiteLayout>
-
-<style>
-    .error {
-        text-align: center;
-    }
-</style>
+<PageLayout pageID="404" />

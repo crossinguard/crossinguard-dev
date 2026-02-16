@@ -7,14 +7,19 @@ interface Props {
 const { link, label } = Astro.props;
 
 const normalize = (path: string) => path.replace(/\/$/, "") || "/";
-const isCurrentPage = normalize(Astro.url.pathname) === normalize(link);
+const isExactMatch = normalize(Astro.url.pathname) === normalize(link);
+const isAncestorMatch =
+    normalize(link) !== "/" &&
+    normalize(Astro.url.pathname).startsWith(normalize(link));
+
+const ariaCurrent = isExactMatch
+    ? "page"
+    : isAncestorMatch
+      ? "true"
+      : undefined;
 ---
 
-<a
-    class="nav-link"
-    href={link}
-    aria-current={isCurrentPage ? "page" : undefined}>{label}</a
->
+<a class="nav-link" href={link} aria-current={ariaCurrent}>{label}</a>
 
 <style>
     .nav-link {
@@ -50,9 +55,14 @@ const isCurrentPage = normalize(Astro.url.pathname) === normalize(link);
                 background: var(--color-pop);
             }
         }
+
+        &:focus-visible {
+            outline: 2px solid var(--color-secondary);
+            outline-offset: var(--space-3xs);
+        }
     }
 
-    .nav-link[aria-current="page"]::after {
+    .nav-link[aria-current]::after {
         background: var(--color-pop);
     }
 </style>

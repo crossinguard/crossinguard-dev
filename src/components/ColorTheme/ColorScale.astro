@@ -1,0 +1,54 @@
+---
+import ColorSwatch from "./ColorSwatch.astro";
+
+interface Props {
+    name: string;
+    base: string;
+}
+
+const { name, base } = Astro.props;
+
+const steps = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+const lightSteps = [100, 200, 300];
+---
+
+<div class="color-scale" style={`--scale-base: ${base};`}>
+    <p class="scale-label">{name}</p>
+    <div class="auto-grid">
+        {
+            steps.map((step) => (
+                <ColorSwatch
+                    name={name}
+                    step={step}
+                    light={lightSteps.includes(step)}
+                />
+            ))
+        }
+    </div>
+</div>
+
+<style>
+    .color-scale {
+        --color-100: hsl(from var(--scale-base) calc(h - 12) calc(s + 15) 95%);
+        --color-200: hsl(from var(--scale-base) calc(h - 10) calc(s + 12) 85%);
+        --color-300: hsl(from var(--scale-base) calc(h - 8) calc(s + 8) 75%);
+        --color-400: hsl(from var(--scale-base) calc(h - 6) calc(s + 5) 65%);
+        --color-500: hsl(from var(--scale-base) calc(h - 3) calc(s + 2) 55%);
+        --color-600: hsl(from var(--scale-base) h s 45%);
+        --color-700: hsl(from var(--scale-base) calc(h + 2) calc(s - 3) 35%);
+        --color-800: hsl(from var(--scale-base) calc(h + 4) calc(s - 8) 25%);
+        --color-900: hsl(from var(--scale-base) calc(h + 6) calc(s - 15) 18%);
+        --color-1000: hsl(from var(--scale-base) calc(h + 8) calc(s - 25) 12%);
+
+        /*display: grid;*/
+        /*grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));*/
+        /*gap: 1rem;*/
+        /*margin-block-end: 2rem;*/
+    }
+
+    .scale-label {
+        font-size: var(--size-1);
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+</style>

@@ -1,7 +1,8 @@
 ---
-import SiteLayout from "@layouts/SiteLayout.astro";
 import { getCollection, render } from "astro:content";
 import { formatDate } from "../../utils/formatDate";
+import SiteLayout from "@layouts/SiteLayout.astro";
+import BreadcrumbNav from "@components/BreadcrumbNav/BreadcrumbNav.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
@@ -55,6 +56,13 @@ const updatedDate = post.data.updatedDate
         <div class="content prose">
             <Content />
         </div>
+        <BreadcrumbNav
+            segments={[
+                { label: "Posts", href: "/posts" },
+                { label: String(post.data.pubDate.getFullYear()) },
+                { label: post.data.title },
+            ]}
+        />
     </div>
 </SiteLayout>
 

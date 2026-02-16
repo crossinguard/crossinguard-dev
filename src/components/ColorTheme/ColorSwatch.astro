@@ -1,0 +1,32 @@
+---
+interface Props {
+    name: string;
+    step: number;
+    light?: boolean;
+}
+
+const { name, step, light = false } = Astro.props;
+---
+
+<div
+    class:list={["color-swatch", { light }]}
+    style={`background-color: var(--color-${step});`}
+>
+    {name}-{step}
+</div>
+
+<style>
+    .color-swatch {
+        height: 100px;
+        border-radius: 8px;
+        display: grid;
+        align-items: end;
+        padding: 0.75rem;
+        color: white;
+        font-weight: 500;
+    }
+
+    .color-swatch.light {
+        color: #1f2937;
+    }
+</style>

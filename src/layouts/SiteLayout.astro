@@ -16,7 +16,7 @@ const { title, description } = Astro.props;
     <SiteHead title={title} description={description} />
     <body>
         <SiteHeader />
-        <main id="main-content">
+        <main id="main-content" tabindex="-1">
             <slot />
         </main>
         <SiteFooter />
@@ -146,17 +146,14 @@ const { title, description } = Astro.props;
             --font-family-mono: monospace;
 
             /* COLOR THEME */
-            --color-light: #f9f3eb; /* var(--color-white-linen-50) */
-            --color-light-shade: #f5ecdf; /* var(--color-white-linen-100) */
-            --color-dark: #02001a; /* var(--color-ebony-950) */
-            --color-primary: #0ba4ae; /* var(--color-pelorous-600) */
-            --color-primary-shade: #10848e; /* var(--color-pelorous-700) */
-            --color-secondary: #67df82; /* var(--color-pastel-green-400) */
-            --color-tertiary: #e1f0c9; /* var(--color-beryl-green-100) */
-            --color-pop: #ff7139; /* var(--color-burning-orange-400) */
-
-            /* DYNAMIC COLOR THEME */
-            --color-base: tomato;
+            --color-light: #f9f3eb;
+            --color-light-shade: #f5ecdf;
+            --color-dark: #02001a;
+            --color-primary: #0ba4ae;
+            --color-primary-shade: #10848e;
+            --color-secondary: #67df82;
+            --color-tertiary: #e1f0c9;
+            --color-pop: #ff7139;
         }
     }
 

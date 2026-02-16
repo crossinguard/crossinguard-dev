@@ -144,6 +144,15 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text" }
           - { label: "Body", name: "body", widget: "markdown" }
+      - label: "404 Page"
+        name: "page-404"
+        file: "src/content/pages/404.md"
+        editor:
+          preview: false
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
 
   # CONTENT COLLECTIONS
   - label: "Content Pages"

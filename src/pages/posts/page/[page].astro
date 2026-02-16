@@ -1,8 +1,10 @@
 ---
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
-import PageLayout from "@layouts/PageLayout.astro";
-import CardPost from "@components/Cards/CardPost.astro";
 import { getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import PostsGrid from "@components/PostsGrid/PostsGrid.astro";
+import BreadcrumbNav from "@components/BreadcrumbNav/BreadcrumbNav.astro";
+import pagination from "@data/pagination.json";
 
 export const getStaticPaths = (async ({ paginate }) => {
     const allPosts = await getCollection("posts", ({ data }) => {
@@ -13,22 +15,28 @@ export const getStaticPaths = (async ({ paginate }) => {
         (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
     );
 
-    return paginate(sortedPosts, { pageSize: 6 });
+    return paginate(sortedPosts, { pageSize: pagination.postsPerPage });
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page } = Astro.props as Props;
+
+const prevUrl = page.currentPage === 2 ? "/posts" : page.url.prev;
 ---
 
 <PageLayout pageID="posts">
-    <section class="auto-grid">
-        {page.data.map((post) => <CardPost post={post} />)}
-    </section>
-
-    <nav aria-label="Pagination">
-        {page.url.prev && <a href={page.url.prev}>Previous</a>}
-        <span>Page {page.currentPage} of {page.lastPage}</span>
-        {page.url.next && <a href={page.url.next}>Next</a>}
-    </nav>
+    <BreadcrumbNav
+        segments={[
+            { label: "Posts", href: "/posts" },
+            { label: `Page ${page.currentPage}` },
+        ]}
+    />
+    <PostsGrid
+        posts={page.data}
+        currentPage={page.currentPage}
+        lastPage={page.lastPage}
+        prevUrl={prevUrl}
+        nextUrl={page.url.next}
+    />
 </PageLayout>

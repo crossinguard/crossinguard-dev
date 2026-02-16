@@ -1,13 +1,56 @@
 ---
-const today = Date();
+interface BreadcrumbSegment {
+    label: string;
+    href?: string;
+}
+
+interface Props {
+    segments: BreadcrumbSegment[];
+}
+
+const { segments } = Astro.props;
 ---
 
-<div class="breadcrumbs">
-    <p>this is a breadcrumb!</p>
-</div>
+<nav aria-label="Breadcrumb">
+    <ol role="list" class="breadcrumbs group">
+        {
+            segments.map((segment, index) => (
+                <li>
+                    {segment.href ? (
+                        <a href={segment.href}>{segment.label}</a>
+                    ) : (
+                        <span
+                            aria-current={
+                                index === segments.length - 1
+                                    ? "page"
+                                    : undefined
+                            }
+                        >
+                            {segment.label}
+                        </span>
+                    )}
+                </li>
+            ))
+        }
+    </ol>
+</nav>
 
 <style>
     .breadcrumbs {
-        display: none;
+        --group-gap: var(--space-3xs);
+        list-style: none;
+        padding: var(--space-2xs);
+        width: fit-content;
+        font-size: var(--size--1);
+        border: solid thin var(--color-dark);
+    }
+
+    li:not(:last-child)::after {
+        content: ">";
+        margin-inline-start: var(--space-3xs);
+    }
+
+    li:last-child {
+        font-weight: 600;
     }
 </style>

@@ -1,0 +1,30 @@
+---
+import CardPost from "@components/Cards/CardPost.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    posts: CollectionEntry<"posts">[];
+    currentPage: number;
+    lastPage: number;
+    prevUrl?: string;
+    nextUrl?: string;
+}
+
+const { posts, currentPage, lastPage, prevUrl, nextUrl } = Astro.props;
+---
+
+<section class="auto-grid">
+    {posts.map((post) => <CardPost post={post} />)}
+</section>
+
+{
+    lastPage > 1 && (
+        <nav aria-label="Pagination">
+            {prevUrl && <a href={prevUrl}>Previous</a>}
+            <span>
+                Page {currentPage} of {lastPage}
+            </span>
+            {nextUrl && <a href={nextUrl}>Next</a>}
+        </nav>
+    )
+}
